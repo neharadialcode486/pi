@@ -15,6 +15,40 @@
     background-image: url(../images/png/bgsvg.png);
 }
 
+.linear-wipe {
+    background: radial-gradient(127.22% 415.03% at -16.43% 122.04%, #EA15BC 0%, #4E3BFF 50%, #0097FF 100%);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 6s linear infinite;
+
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
 .jdh {
     color: #ffffff59;
+}
+
+@media (max-width:1200px) {
+    .smallscreen {
+        flex-direction: column;
+        background: #071331;
+        position: fixed;
+        width: 100%;
+        justify-content: center;
+        height: 100%;
+        left: -100%;
+        top: 0;
+        transition: all .3s linear;
+        z-index: 3;
+    }
+
 }

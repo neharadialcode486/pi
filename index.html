@@ -13,14 +13,23 @@
         extend: {
           colors: {
             main: '#071331',
+            'blue-1000': '#1E3C90',
             lightwhite: '#ffffff59'
           },
           backgroundImage: {
-            linersvggraditant: 'radial-gradient(75.71% 75.71% at 26.43% 24.29%, #FFFFFF 0%, rgba(255, 255, 255, 0) 79.99%)'
+            linersvggraditant: 'radial-gradient(75.71% 75.71% at 26.43% 24.29%, #FFFFFF 0%, rgba(255, 255, 255, 0) 79.99%)',
+            linerbuttongraditant: ' radial-gradient(127.22% 415.03% at -16.43% 122.04%, rgba(26, 83, 255, 0.5) 0%, #02C0FF 100%)'
           }
           , fontSize: {
             'xxl': '23px',
-            '2xxl': '26px'
+            '2xxl': '26px',
+            '2xll': '28px',
+            'max-big': '107px',
+          },
+          lineHeight: {
+            'max-big': '132px',
+            'l-md': '32px',
+            'l-sm': '23px'
           },
           letterSpacing: {
             low: '-0.02em',
@@ -34,30 +43,39 @@
           },
           backgroundSize: {
             'full': '100% 100%',
-          }
+          },
+
+          screens: {
+            'navbar': '1200px',
+          },
         }
       }
     }
 
   </script>
+  <script>
+    function navBarshow() {
+      document.querySelector('#smallscreen').classList.toggle('start-0')
+    }
+  </script>
 </head>
 
 <body class=" bg-main">
-  <header>
-    <nav class=" max-w-[1556px] px-3 mx-auto mt-[142px]">
+  <header class=" min-h-screen flex flex-col">
+    <nav class=" max-w-[1556px] w-full px-3 mx-auto 2xl:mt-[142px] mt-10 md:mt-16 lg:mt-20">
       <div class="max-w-[1411px]">
         <div class="flex items-center justify-between ">
           <div>
             <ul>
               <li>
                 <a href="#">
-                  <img src="./assets/images/png/logo.png" alt="logo" width="277" height="61">
-                  a>
+                  <img class="max-sm:w-36" src="./assets/images/png/logo.png" alt="logo" width="277" height="61">
+                </a>
               </li>
             </ul>
           </div>
-          <div class=" flex items-center xl:gap-24 gap-12 2xl:gap-[157px]">
-            <ul class=" flex items-center gap-[60px]">
+          <div id="smallscreen" class=" flex items-center smallscreen xl:gap-24 gap-12 2xl:gap-[157px]">
+            <ul class=" flex  max-navbar:flex-col items-center gap-[60px]">
               <li>
                 <a href="#product"
                   class=" font-semibold font-barlow-condensed text-2xxl leading-6 tracking-light text-white flex items-center gap-2.5">Products
@@ -85,23 +103,25 @@
                 </a>
               </li>
             </ul>
-            <ul class=" flex item-cneter gap-4">
-              <li class="gap-5 flex items-center">
+            <ul class=" flex  max-navbar:flex-col  item-cneter gap-4">
+              <li class="gap-5 max-navbar:flex-col flex items-center">
                 <a href="#"
-                  class="drop-shadow-navsocail relative z-[1] border-lightwhite border-[2px] rounded-full py-6 bg-full bg-linersvggraditant mix-blend-o verlay bg-no-repeat px-[21px] inline-block ">
+                  class="drop-shadow-navsocail relative z-[1]  rounded-full py-6 bg-full  bg-no-repeat px-[21px] inline-block ">
                   <img src="./assets/images/svg/twiiter.svg" class="min-h-6 min-w-7" alt="twiiter">
 
                   <img src="./assets/images/svg/borderbottomtwitter.svg" alt="border-botom"
-                    class="absolute  bottom-[-2px]  left-[50%] translate-x-[-50%] ">
+                    class="absolute  bottom-[2px]  left-[50%] translate-x-[-50%] ">
+                  <img src="./assets/images/png/bgsvg.png" alt="bg-svg" class=" z-[-1] absolute rounded-full inset-0">
 
                 </a>
                 <a href="#"
-                  class="drop-shadow-navsocail relative z-[1] border-lightwhite border-[2px] rounded-full py-6 bg-full bg-linersvggraditant mix-blend-o verlay bg-no-repeat px-[21px] inline-block ">
+                  class="drop-shadow-navsocail relative z-[1]  rounded-full py-6 bg-full  bg-no-repeat px-[21px] inline-block ">
                   <img src="./assets/images/svg/discord.svg" width="26" height="24" class="min-h-6 min-w-7"
                     alt="twiiter">
                   <img src="./assets/images/svg/borderdiscord.svg" alt="border-botom"
-                    class="absolute  bottom-[-2px]  left-[50%] translate-x-[-50%] ">
+                    class="absolute  bottom-[2px]  left-[50%] translate-x-[-50%] ">
 
+                  <img src="./assets/images/png/bgsvg.png" alt="bg-svg" class=" z-[-1] absolute rounded-full inset-0">
                 </a>
               </li>
               <li>
@@ -116,9 +136,38 @@
               </li>
             </ul>
           </div>
+          <button onclick="navBarshow()"
+            class="relative navbar:hidden px-3 py-4 border-[2px] border-lightwhite  rounded-md  z-[5] flex flex-col gap-1">
+            <span class="w-[18px] h-[2px] block bg-white rounded-[16px]"></span>
+            <span class="w-[18px] h-[2px] block bg-white rounded-[16px]"></span>
+            <span class="w-[18px] h-[2px] block bg-white rounded-[16px]"></span>
+          </button>
         </div>
       </div>
     </nav>
+    <main class="grow flex justify-center items-center">
+      <div class="max-w-[1556px] w-full px-3 mx-auto">
+        <div class="ps-6">
+          <h1 class="font-poppins text-max-big font-semibold tracking-tighter leading-max-big text-white">The Future Of
+            <span class="linear-wipe block">
+              Liquid Staking </span>
+          </h1>
+          <div class=" gap-10 flex items-center mt-10">
+            <span>
+              <img src="./assets/images/svg/threebubble.svg" alt="threebubble">
+            </span>
+            <span class="h-14 bg-blue-1000 block w-1"></span>
+            <p class=" font-poppins font-medium text-white text-2xll tracking-tighter leading-l-md">Launch a validator
+              node or <br> stake
+              PLS instantly</p>
+          </div>
+          <button
+            class="uppercase relative z-[1]  text-white text-2xxl font-semibold font-barlow-condensed bg-linerbuttongraditant tracking-low rounded-full leading-l-sm  py-[31px] px-[65px]">
+            Create pi pool
+          </button>
+        </div>
+      </div>
+    </main>
   </header>
 </body>
 
