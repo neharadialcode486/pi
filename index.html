@@ -7,30 +7,42 @@
   <title>Document</title>
   <link rel="stylesheet" href="./assets/style/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             main: '#071331',
+            blacklow: '#061130',
             'blue-1000': '#1E3C90',
-            lightwhite: '#ffffff59'
+            'dark-gray-100': '#DFE5F7',
+            lightwhite: '#ffffff59',
+            lightdarkgreen: '#04CBF3',
           },
           backgroundImage: {
             linersvggraditant: 'radial-gradient(75.71% 75.71% at 26.43% 24.29%, #FFFFFF 0%, rgba(255, 255, 255, 0) 79.99%)',
-            linerbuttongraditant: ' radial-gradient(127.22% 415.03% at -16.43% 122.04%, rgba(26, 83, 255, 0.5) 0%, #02C0FF 100%)'
+            linerbuttongraditant: ' radial-gradient(127.22% 415.03% at -16.43% 122.04%, rgba(26, 83, 255, 0.5) 0%, #02C0FF 100%)',
+            linercurrentgraditantlayer: 'linear-gradient(180deg, rgba(23, 32, 77, 0) 16.5%, #17204D 100%)'
           }
           , fontSize: {
             'xxl': '23px',
+            '2xsl': '25px',
             '2xxl': '26px',
             '2xll': '28px',
             'max-big': '107px',
+            '7xxl': '74px',
+            '8xsl': '80px',
           },
           lineHeight: {
             'max-big': '132px',
-            'l-md': '32px',
             'l-sm': '23px',
+            'ls-sm': '22px',
+            'l-md': '32px',
+            'l-xl': '42px',
             '11': '68px',
+            '11.5': '72px',
+            '12': '81px',
           },
           letterSpacing: {
             low: '-0.02em',
@@ -59,10 +71,43 @@
       document.querySelector('#smallscreen').classList.toggle('start-0')
     }
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById('header');
+      const imageLarge = document.getElementById('image-large');
+      const imageSmall = document.getElementById('image-small');
+
+      function move(e) {
+        const w = container.offsetWidth;
+        const h = container.offsetHeight;
+        const mouseX = e.clientX - container.getBoundingClientRect().left;
+        const mouseY = e.clientY - container.getBoundingClientRect().top;
+        const imageX = (mouseX / w) * 10;
+        const imageY = (mouseY / h) * 10;
+
+        // Calculate the distance between current position and new position
+        const distanceX = (imageX - parseFloat(imageLarge.style.left || 0)) * 0.1;
+        const distanceY = (imageY - parseFloat(imageLarge.style.top || 0)) * 0.1;
+
+        // Update the position of the image based on screen size
+        if (window.innerWidth >= 1024) {
+          // For large screens
+          imageLarge.style.top = imageY + "px";
+          imageLarge.style.left = imageX + "px";
+        } else {
+          // For small screens
+          imageSmall.style.top = imageY + "px";
+          imageSmall.style.left = imageX + "px";
+        }
+      }
+
+      container.addEventListener('mousemove', move);
+    });
+  </script>
 </head>
 
 <body class=" bg-main">
-  <header class=" lg:min-h-screen flex flex-col">
+  <header id="header" class=" overflow-x-clip min-h-screen relative z-[1] flex flex-col">
     <nav class=" max-w-[1556px] w-full px-3 mx-auto 2xl:mt-[142px] mt-10 md:mt-16 lg:mt-20">
       <div class="max-w-[1411px]">
         <div class="flex items-center justify-between ">
@@ -127,7 +172,7 @@
               </li>
               <li>
                 <a href="#"
-                  class=" rounded-full text-xxl text-white uppercase text-nowrap  nowrap font-barlow-condensed font-semibold leading-5 tracking-low py-[27px] px-11 flex items-center gap-4 shadow-innerouter ">
+                  class=" rounded-full bg-blacklow text-xxl text-white uppercase text-nowrap  nowrap font-barlow-condensed font-semibold leading-5 tracking-low py-[27px] px-11 flex items-center gap-4 shadow-innerouter ">
                   launch app
                   <span>
                     <img src="./assets/images/svg/arrownav.svg" height="24" width="24" class="min-w-6 min-h-6"
@@ -146,11 +191,11 @@
         </div>
       </div>
     </nav>
-    <main class="grow flex justify-center items-center lg:mt-0 md:mt-24 sm:mt-16 mt-12 ">
+    <main class="lg:grow lg:flex lg:justify-center lg:items-center lg:mt-0 md:mt-24 sm:mt-16 mt-12 ">
       <div class="max-w-[1556px] w-full px-3 mx-auto">
         <div class="md:ps-6">
           <h1
-            class="font-poppins text-5xl 2xl:text-max-big font-semibold tracking-tighter 2xl:leading-max-big leading-11 text-white">
+            class="font-poppins text-5xl md:text-8xl 2xl:text-max-big font-semibold tracking-tighter 2xl:leading-max-big leading-11 text-white">
             The Future Of
             <span class="linear-wipe block">
               Liquid Staking </span>
@@ -160,7 +205,9 @@
               <img src="./assets/images/svg/threebubble.svg" alt="threebubble">
             </span>
             <span class="h-14 bg-blue-1000 block w-1"></span>
-            <p class=" font-poppins font-medium text-white text-xl md:text-2xll tracking-tighter leading-6 md:leading-l-md">Launch a validator
+            <p
+              class=" font-poppins font-medium text-white text-xl md:text-2xll tracking-tighter leading-6 md:leading-l-md">
+              Launch a validator
               node or <br class="max-md:hidden"> stake
               PLS instantly</p>
           </div>
@@ -177,7 +224,77 @@
         </div>
       </div>
     </main>
+    <img src="./assets/images/png/headerbg.png" id="image-large"
+      class=" max-sm:hidden absolute top-0 left-0 z-[-1] headerimg w-full h-full" alt="headerbg">
+    <img src="./assets/images/png/mobilebgheader.png" id="image-small"
+      class=" sm:hidden absolute bottom-[-15%] left-0 z-[-1] headerimg w-full h-full" alt="headerbg">
   </header>
+  <section>
+    <div class="max-w-[1440px] relative z-[3] w-full h-full max-h-[478px] mx-auto ">
+      <h2
+        class="gradient-text hover:text-transparent relative z-[3] text-center font-poppins font-semibold text-7xxl leading-12 tracking-tighter text-white">
+        Current Stats
+      </h2>
+      <div class="mt-11 relative z-[2]">
+        <img src="./assets/images/png/bg-currentstate.png" alt="bg-currentstate"
+          class="w-full absolute z-[-1] h-[478px] top-0 ">
+        <div class="px-[90px] relative z-[4] w-full flex justify-between pt-[100px] ">
+          <div class=" max-w-[240px] w-full group">
+            <a href="#"><img class="flex mix-blend-normal mx-auto group-hover:rotate-[20deg] group duration-300"
+                src="./assets/images/svg/stpls.svg" alt="stphy"></a>
+            <h3
+              class=" font-barlow-condensed font-semibold  duration-300 text-8xsl leading-11.5 text-center text-white mt-[72px]">
+              7.19%</h3>
+            <p
+              class=" font-barlow-condensed uppercase font-semibold text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-[37px]">
+              stpls apy</p>
+          </div>
+          <div class=" max-w-[240px] w-full group">
+            <a href="#"><img class=" mx-auto mix-blend-normal flex group-hover:rotate-[20deg]  duration-300"
+                src="./assets/images/svg/pls.svg" alt="stphy"></a>
+            <h3
+              class=" font-barlow-condensed font-semibold  duration-300 text-8xsl leading-11.5 text-center text-white mt-[72px]">
+              317,503</h3>
+            <p
+              class=" font-barlow-condensed uppercase font-semibold text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-[37px]">
+              PLS Staked</p>
+          </div>
+          <div class=" max-w-[240px] w-full group">
+            <a href="#"><img class=" mx-auto mix-blend-normal flex group-hover:rotate-[20deg] group duration-300"
+                src="./assets/images/svg/pool.svg" alt="stphy"></a>
+            <h3
+              class=" font-barlow-condensed font-semibold  duration-300 text-8xsl leading-11.5 text-center text-white mt-[72px]">
+              31.64%</h3>
+            <p
+              class=" font-barlow-condensed uppercase font-semibold text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-[37px]">
+              Avg. pi pool apy</p>
+          </div>
+          <div class=" max-w-[240px] w-full group">
+            <a href="#"><img class="flex mix-blend-normal mx-auto group-hover:rotate-[20deg] group duration-300"
+                src="./assets/images/svg/pools.svg" alt="stphy"></a>
+            <h3
+              class=" relative z-[4] font-barlow-condensed font-semibold  duration-300 text-8xsl leading-11.5 text-center text-white mt-[72px]">
+              251</h3>
+            <p
+              class=" font-barlow-condensed uppercase font-semibold text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-[37px]">
+              active pi pools</p>
+          </div>
+        </div>
+        <div class=" absolute max-w-[1200px] top-[-50%] w-full   left-[50%] translate-x-[-50%] z-[2]">
+          <div
+            class=" max-w-[1200px] w-full h-[872px] bg-linercurrentgraditantlayer gradient-border-mask3 relative rounded-[30px] z-[1] w-full">
+          </div>
+        </div>
+      </div>
+      <p
+        class="relative  z-[3] text-dark-gray-100 font-poppins font-medium text-2xll leading-l-xl mt-[70px] tracking-tighter text-center max-w-[600px] mx-auto">
+        Learn how to earn a higher ROI with our decentralized staking protocol</p>
+      <button aria-label="learnmore"
+        class=" rounded-full relative  z-[3] bg-blacklow text-xxl mt-[75px]  flex mx-auto text-white   uppercase text-nowrap  nowrap font-barlow-condensed font-semibold leading-5 tracking-low py-[27px] px-11 shadow-innerouter ">
+        learn more
+      </button>
+    </div>
+  </section>
 </body>
 
 </html>
