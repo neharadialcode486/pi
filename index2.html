@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets2/style/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              bordercolor:"#2B3B81",
+              blue:'#5071D4',
+              para: "#DFE5F7",
+             blue2: '#1F3987',
+              para2:'#B1BDDE',
+              main: "#071331",
+            },
+            lineHeight:{
+                heading:"37.8px",
+                para:"30px",
+                heading4:'18.9px'
+            },
+            backgroundImage: {
+              "headinggradient":
+                "radial-gradient(127.22% 415.03% at -16.43% 122.04%, #EA15BC 0%, #4E3BFF 50%, #0097FF 100%)",
+                "pinkgradient":"radial-gradient(142.47% 142.47% at -16.43% 122.04%, #E617A1 0%, #FF33DD 50%, #FF4DFF 100%)" ,
+                "darkbluegradient": "radial-gradient(142.47% 142.47% at -16.43% 122.04%, #2E3DE6 0%, #4D79FF 50%, #66A6FF 100%)",
+                "skyblue":"radial-gradient(142.47% 142.47% at -16.43% 122.04%, #0099E6 0%, #00D4FF 50%, #1AFFFF 100%)" ,
+
+
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <!-- ======how does it work ====== -->
+    <section class="bg-main">
+      <div class="max-w-[1499px] mx-auto px-3">
+        <h2
+          class="font-poppins font-semibold leading-[118.8px] text-[108px] text-center bg-headinggradient bg-clip-text text-transparent"
+        >
+          How does it work?
+        </h2>
+        <p
+          class="text-center text-[23px] text-para mx-auto font-medium font-poppins max-w-[720px] pt-[74px] md:leading-[40.25px]"
+        >
+          Project Pi uses liquid staking to lower the PulseChain minimum staking
+          requirement to launch a node and become a validator. Reward cycles
+          occur every 15 days and yield is generated for liquid stakers and node
+          operators.
+        </p>
+        <div class="flex flex-row flex-wrap justify-between -mx-3 pt-[150px]">
+          <div class=" max-w-[330px] px-3 text-center">
+                  <div
+                    class="border-solid b border-[2px] inline-block border-bordercolor block  p-2  rounded-full">
+                    <div
+                      class="border-dotted border-[4px] block border-bordercolor  flex items-center p-2 rounded-full justify-center">
+                      <div class="bg-pinkgradient w-[100px] h-[100px] rounded-full flex justify-center items-center">
+                        <img src="./assets2//images/svg/liquid-icon.svg" alt="icon-1">
+                      </div>
+                          </div>
+                           <div>
+                        </div>
+                    </div>
+                    <h3 class="font-barlow-condensed pt-9 font-bold text-[42px] text-white leading-heading">LIQUID STAKING</h3>
+                    <p class="font-poppins font-medium text-xl leading-para text-para2 tracking-tighter pt-9 ">Swap PLS for stPLS to earn staking rewards via liquid staking. No hardware needed.</p>
+          </div>
+         
+            <div class="relative z-[1]">
+                 <span class="bg-blue2 top-[18%] right-[103%] absolute max-w-[112px] w-full block h-[2px]"></span>
+                <h4 class="text-blue  font-bold leading-heading4 pt-[43px] text-center text-[21px] "> PLS SENT TO <span class="block"></span> DEPOSIT POOL</h4>
+            <span class="absolute top-[18%] left-[103%] w-full "><img src="./assets2//images/svg/bluearrow.svg" alt="arrow"></span>
+                </div>
+        
+           <div class=" max-w-[330px] px-3 text-center">
+                  <div
+                    class="border-solid b border-[2px] inline-block border-bordercolor block  p-2  rounded-full">
+                    <div
+                      class="border-dotted border-[4px] block border-bordercolor  flex items-center p-2 rounded-full justify-center">
+                      <div class="bg-darkbluegradient w-[100px] h-[100px] rounded-full flex justify-center items-center">
+                        <img src="./assets2//images/svg/deposit-icon.svg" alt="icon-2">
+                      </div>
+                          </div>
+                           <div>
+                        </div>
+                    </div>
+                    <h3 class="font-barlow-condensed pt-9 font-bold text-[42px] text-white leading-heading">DEPOSIT POOL</h3>
+                    <p class="font-poppins font-medium text-xl leading-para text-para2 tracking-tighter pt-9 ">Staker PLS is deposited into the Deposit Pool, getting matched to queued Pi Pools.</p>
+          </div>
+          <div>
+            <h4 class="text-blue font-bold leading-heading4 pt-[43px] text-center text-[21px] ">PLS MATCHED TO <span class="block"></span> MINIPOOL IN QUEUE</h4>
+          </div>
+           <div class=" max-w-[341px] px-3 text-center">
+                  <div
+                    class="border-solid b border-[2px] inline-block border-bordercolor block  p-2  rounded-full">
+                    <div
+                      class="border-dotted border-[4px] block border-bordercolor  flex items-center p-2 rounded-full justify-center">
+                      <div class="bg-skyblue w-[100px] h-[100px] rounded-full flex justify-center items-center">
+                        <img src="./assets2//images/svg/node-icon.svg" alt="icon-3">
+                      </div>
+                          </div>
+                           <div>
+                        </div>
+                    </div>
+                    <h3 class="font-barlow-condensed pt-9 font-bold text-[42px] text-white leading-heading">NODE OPERATORS</h3>
+                    <p class="font-poppins font-medium text-xl leading-para text-para2 tracking-tighter pt-9 ">Operators stake PLS and PPY to get matched with Deposit Pool funds and launch a new validator.</p>
+          </div>
+      </div>
+    </section>
+  </body>
+</html>
