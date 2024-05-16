@@ -29,7 +29,8 @@
           lineHeight: {
             'max-big': '132px',
             'l-md': '32px',
-            'l-sm': '23px'
+            'l-sm': '23px',
+            '11': '68px',
           },
           letterSpacing: {
             low: '-0.02em',
@@ -61,7 +62,7 @@
 </head>
 
 <body class=" bg-main">
-  <header class=" min-h-screen flex flex-col">
+  <header class=" lg:min-h-screen flex flex-col">
     <nav class=" max-w-[1556px] w-full px-3 mx-auto 2xl:mt-[142px] mt-10 md:mt-16 lg:mt-20">
       <div class="max-w-[1411px]">
         <div class="flex items-center justify-between ">
@@ -145,10 +146,12 @@
         </div>
       </div>
     </nav>
-    <main class="grow flex justify-center items-center">
+    <main class="grow flex justify-center items-center lg:mt-0 md:mt-24 sm:mt-16 mt-12 ">
       <div class="max-w-[1556px] w-full px-3 mx-auto">
-        <div class="ps-6">
-          <h1 class="font-poppins text-max-big font-semibold tracking-tighter leading-max-big text-white">The Future Of
+        <div class="md:ps-6">
+          <h1
+            class="font-poppins text-5xl 2xl:text-max-big font-semibold tracking-tighter 2xl:leading-max-big leading-11 text-white">
+            The Future Of
             <span class="linear-wipe block">
               Liquid Staking </span>
           </h1>
@@ -157,14 +160,20 @@
               <img src="./assets/images/svg/threebubble.svg" alt="threebubble">
             </span>
             <span class="h-14 bg-blue-1000 block w-1"></span>
-            <p class=" font-poppins font-medium text-white text-2xll tracking-tighter leading-l-md">Launch a validator
-              node or <br> stake
+            <p class=" font-poppins font-medium text-white text-xl md:text-2xll tracking-tighter leading-6 md:leading-l-md">Launch a validator
+              node or <br class="max-md:hidden"> stake
               PLS instantly</p>
           </div>
-          <button
-            class="uppercase relative z-[1]  text-white text-2xxl font-semibold font-barlow-condensed bg-linerbuttongraditant tracking-low rounded-full leading-l-sm  py-[31px] px-[65px]">
-            Create pi pool
-          </button>
+          <div class=" flex items-center gap-[6px] mt-10 sm:mt-12  lg:mt-16 2xl:pt-1">
+            <button
+              class="uppercase relative z-[1]  text-white text-lg md:text-2xxl font-semibold font-barlow-condensed  tracking-low rounded-full leading-l-sm py-5  md:py-[31px] px-[35px] md:px-[65px] shadow-innerouter">
+              Create pi pool
+            </button>
+            <button
+              class="uppercase relative z-[1]  text-white text-lg md:text-2xxl font-semibold font-barlow-condensed  tracking-low rounded-full leading-l-sm py-5  md:py-[31px] px-[35px] md:px-[65px] shadow-innerouter">
+              Create pi pool
+            </button>
+          </div>
         </div>
       </div>
     </main>
