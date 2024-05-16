@@ -5,31 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./assets2/style/style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
+              blue3:"#04CBF3",
               clifford: "#da373d",
               bordercolor:"#2B3B81",
               blue:'#5071D4',
+             purple:'#C58CFF',
               para: "#DFE5F7",
              blue2: '#1F3987',
               para2:'#B1BDDE',
               main: "#071331",
             },
             lineHeight:{
+              heading2:'22.5px',
+              para3:'24px',
                 heading:"37.8px",
                 para:"30px",
+                paracarad:'34.4px',
                 heading4:'18.9px'
             },
             backgroundImage: {
               "headinggradient":
                 "radial-gradient(127.22% 415.03% at -16.43% 122.04%, #EA15BC 0%, #4E3BFF 50%, #0097FF 100%)",
+                "purple-gradient":"radial-gradient(142.47% 142.47% at -16.43% 122.04%, #FF33DD 0%, #4D79FF 100%)",
                 "pinkgradient":"radial-gradient(142.47% 142.47% at -16.43% 122.04%, #E617A1 0%, #FF33DD 50%, #FF4DFF 100%)" ,
                 "darkbluegradient": "radial-gradient(142.47% 142.47% at -16.43% 122.04%, #2E3DE6 0%, #4D79FF 50%, #66A6FF 100%)",
-                "skyblue":"radial-gradient(142.47% 142.47% at -16.43% 122.04%, #0099E6 0%, #00D4FF 50%, #1AFFFF 100%)" ,
+                "skyblue":"radial-gradient(142.47% 142.47% at -16.43% 122.04%, #0099E6 0%, #00D4FF 50%, #1AFFFF 100%)" ,    
+                "bordergradient": "linear-gradient(180deg, #FFFFFF 15.6%, rgba(255, 255, 255, 0.5) 100%)",
+                 "innerbordergradient": "radial-gradient(127.22% 415.03% at -16.43% 122.04%, #FF33DD 0%, #4D79FF 50%, #00D5FF 100%)" ,
+                 "box-gradient":' radial-gradient(127.22% 415.03% at -16.43% 122.04%, #FF33DD 0%, #4D79FF 50%, #00D5FF 100%) ',
+"card":'linear-gradient(180deg, rgba(20, 34, 102, 0.25)  0%,  #142266 83.5%)',
+"innerboxgradient":"linear-gradient(180deg, #142266 0%, rgba(20, 34, 102, 0.25) 83.5%)",
+
+
 
 
             },
@@ -39,6 +52,124 @@
     </script>
   </head>
   <body>
+
+    <section class="bg-main">
+      <div class='container max-w-[1440px] mx-auto px-3'>
+                  <div class='grid grid-cols-2 gap-[30px]'>
+                      <div class='col-span-1 flex flex-col border-[#2B3B81] border-[2px] rounded-[30px]'>
+                          <div class=' bg-[linear-gradient(180deg,#142266,0,rgba(20,34,102,0.25)_83.5%)] border-b-[2px] border-[#142A6D]'>
+                              <div class='flex flex-col py-[60px] px-[90px]'>
+                                  <p class='mt-4 text-blue3 font-barlow-condensed leading-heading2 font-bold text-[25px] uppercase'>LIQUID STAKING</p>
+                                  <h3 class='mt-5 font-barlow-condensed uppercase text-white text-[80px] font-semibold'>Earn</h3>
+                                  <p class='py-[60px] font-poppins font-median text-[23px] leading-paracard tracking-tighter text-white'>Participate in PLS staking rewards with Project Pi. Stake your PLS assets to get stPLS, earn rewards, and contribute to the growth of the first decentralized staking protocol on PulseChain.</p>
+                                  <div class='flex items-center gap-4'>
+                                      <button class='text-white '>liquid stake</button>
+                                      <button class='text-white '>learn more</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='relative'>
+                              <div class='flex flex-col px-[90px] py-[60px] gap-11'>
+                                  <div class='flex items-center gap-[30px]'>
+                                      <span class='w-[90px] h-[90px] flex items-center justify-center bg-darkbluegradient rounded-full relative after:absolute after:border-[2px] after:border-[#2B3B81] after:bg-transparent after:w-[110px] after:h-[110px] after:rounded-full'>
+                                         <img src="./assets2/images/svg/simplifiedicon.svg" alt="simplifiedicon">
+                                      </span>
+                                      <div class='flex flex-col gap-5'>
+                                          <p class='text-white font-barlow-condensed font-bold text-[28px] tracking-tighter  leading-heading2'>Simplified & secure</p>
+                                          <p class='text-para font-poppins leading-para3 font-medium text-xl '>stPLS accrues PLS rewards daily.</p>
+                                      </div>
+                                  </div>
+                                  <div class='flex items-center gap-[30px]'>
+                                      <span class='w-[90px] h-[90px] flex items-center justify-center bg-darkbluegradient rounded-full relative after:absolute after:border-[2px] after:border-[#2B3B81] after:bg-transparent after:w-[110px] after:h-[110px] after:rounded-full'>
+                                        <img src="./assets2/images/svg/earn-icon.svg" alt="earn-icon">
+                                      </span>
+                                      <div class='flex flex-col gap-5'>
+                                          <p class='text-white font-barlow-condensed font-bold text-[28px] tracking-tighter  leading-heading2'>EARN DAILY REWARDS</p>
+                                          <p class='text-para font-poppins leading-para3 font-medium text-xl'>Swap PLS for stPLS. Audited by the best.</p>
+                                      </div>
+                                  </div>
+                                   <div class='flex items-center gap-[30px]'>
+                                      <span class='w-[90px] h-[90px] flex items-center justify-center bg-darkbluegradient rounded-full relative after:absolute after:border-[2px] after:border-[#2B3B81] after:bg-transparent after:w-[110px] after:h-[110px] after:rounded-full'>
+                                        <img src="./assets2/images/svg/earn-icon.svg" alt="earn-icon">
+                                      </span>
+                                      <div class='flex flex-col gap-5'>
+                                          <p class='text-white font-barlow-condensed font-bold text-[28px] tracking-tighter  leading-heading2'>ACCESS DEFI NETWORK</p>
+                                          <p class='text-para font-poppins leading-para3 font-medium text-xl'>Put your staked PLS to work across DeFi to compound yield.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <span class='absolute left-0 top-[20%]'>
+                                  <svg width="48" height="276" viewBox="0 0 48 276" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M0 3H45" stroke="#2B3B81" stroke-width="2" />
+                                      <path d="M0 138H45" stroke="#2B3B81" stroke-width="2" />
+                                      <path d="M0 273H45" stroke="#2B3B81" stroke-width="2" />
+                                      <circle cx="45" cy="3" r="3" fill="#4B67B3" />
+                                      <circle cx="45" cy="138" r="3" fill="#4B67B3" />
+                                      <circle cx="45" cy="273" r="3" fill="#4B67B3" />
+                                  </svg>
+                              </span>
+                          </div>
+                      </div>
+                      <div class='col-span-1 flex flex-col border-[#2B3B81] border-[2px] rounded-[30px]'>
+                          <div class=' bg-[linear-gradient(180deg,#142266,0,rgba(20,34,102,0.25)_83.5%)] border-b-[2px] border-[#142A6D]'>
+                              <div class='flex flex-col py-[60px] px-[90px]'>
+                                  <p class='mt-4 text-purple font-barlow-condensed leading-heading2 font-bold text-[25px] uppercase'>NODE OPERATOR</p>
+                                  <h3 class='mt-5 font-barlow-condensed uppercase text-white text-[80px] font-semibold'>Validate</h3>
+                                  <p class='py-[60px] font-poppins font-median text-[23px] leading-paracard tracking-tighter text-white'>Earn more than validating solo. Stake PPY, get matched with PLS, and launch your node with a Minipool. Use your PPY rewards to gain PLS delegations.</p>
+                                  <div class='flex items-center gap-4'>
+                                      <button class='text-white '>liquid stake</button>
+                                      <button class='text-white '>learn more</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class='relative'>
+                              <div class='flex flex-col px-[90px] py-[60px] gap-11'>
+                                  <div class='flex items-center gap-[30px]'>
+                                      <span class='w-[90px] h-[90px] flex items-center justify-center bg-purple-gradient rounded-full relative after:absolute after:border-[2px] after:border-[#2B3B81] after:bg-transparent after:w-[110px] after:h-[110px] after:rounded-full'>
+                                         <img src="./assets2/images/svg/earn-icon.svg" alt="earn-icone">
+                                      </span>
+                                      <div class='flex flex-col gap-5'>
+                                          <p class='text-white font-barlow-condensed font-bold text-[28px] tracking-tighter  leading-heading2'>STAKE 16M PLS</p>
+                                          <p class='text-para font-poppins leading-para3 font-medium text-xl'>Pi pools lower the staking requirement on Avalanche.</p>
+                                      </div>
+                                  </div>
+                                  <div class='flex items-center gap-[30px]'>
+                                      <span class='w-[90px] h-[90px] flex items-center justify-center bg-purple-gradient rounded-full relative after:absolute after:border-[2px] after:border-[#2B3B81] after:bg-transparent after:w-[110px] after:h-[110px] after:rounded-full'>
+                                        <img src="./assets2/images/svg/acess-icon.svg" alt="acess-icon">
+                                      </span>
+                                      <div class='flex flex-col gap-5'>
+                                          <p class='text-white font-barlow-condensed font-bold text-[28px] tracking-tighter  leading-heading2'>NON-CUSTODIAL</p>
+                                          <p class='text-para font-poppins leading-para3 font-medium text-xl'>Maintain ownership of your new validator.</p>
+                                      </div>
+                                  </div>
+                                  <div class='flex items-center gap-[30px]'>
+                                      <span class='!w-[90px] !h-[90px] flex items-center justify-center bg-purple-gradient rounded-full relative after:absolute after:border-[2px] after:border-[#2B3B81] after:bg-transparent after:w-[110px] after:h-[110px] after:rounded-full'>
+                                          <svg width="33" height="39" viewBox="0 0 33 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M4 16.6L16.6 4L29.2 16.6" stroke="white" stroke-width="6.3" stroke-linecap="round" stroke-linejoin="round" />
+                                              <path d="M4.00012 35.4999L16.6001 22.8999L29.2001 35.4999" stroke="white" stroke-width="6.3" stroke-linecap="round" stroke-linejoin="round" />
+                                          </svg>
+                                      </span>
+                                      <div class='flex flex-col gap-5'>
+                                          <p class='text-white font-barlow-condensed font-bold text-[28px] tracking-tighter  leading-heading2'>HIGHER ROI</p>
+                                          <p class='text-para font-poppins leading-para3 font-medium text-xl'>Earn commission from pooled PLS, and PPY rewards from providing PPY collateral.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <span class='absolute left-0 top-[20%]'>
+                                  <svg width="48" height="276" viewBox="0 0 48 276" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M0 3H45" stroke="#2B3B81" stroke-width="2" />
+                                      <path d="M0 138H45" stroke="#2B3B81" stroke-width="2" />
+                                      <path d="M0 273H45" stroke="#2B3B81" stroke-width="2" />
+                                      <circle cx="45" cy="3" r="3" fill="#4B67B3" />
+                                      <circle cx="45" cy="138" r="3" fill="#4B67B3" />
+                                      <circle cx="45" cy="273" r="3" fill="#4B67B3" />
+                                  </svg>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+    </section>
     <!-- ======how does it work ====== -->
     <section class="bg-main">
       <div class="max-w-[1499px] mx-auto px-3">
@@ -56,7 +187,7 @@
           operators.
         </p>
         <div class="flex flex-row flex-wrap justify-between -mx-3 pt-[150px]">
-          <div class=" max-w-[330px] px-3 text-center">
+          <div class=" w-1/3 2xl:max-w-[330px] px-3 text-center">
                   <div
                     class="border-solid b border-[2px] inline-block border-bordercolor block  p-2  rounded-full">
                     <div
@@ -78,7 +209,7 @@
             <span class="absolute top-[18%] left-[103%] w-full "><img src="./assets2//images/svg/bluearrow.svg" alt="arrow"></span>
                 </div>
         
-           <div class=" max-w-[330px] px-3 text-center">
+           <div class=" w-1/3 2xl:max-w-[330px] px-3 text-center">
                   <div
                     class="border-solid b border-[2px] inline-block border-bordercolor block  p-2  rounded-full">
                     <div
@@ -93,10 +224,12 @@
                     <h3 class="font-barlow-condensed pt-9 font-bold text-[42px] text-white leading-heading">DEPOSIT POOL</h3>
                     <p class="font-poppins font-medium text-xl leading-para text-para2 tracking-tighter pt-9 ">Staker PLS is deposited into the Deposit Pool, getting matched to queued Pi Pools.</p>
           </div>
-          <div>
-            <h4 class="text-blue font-bold leading-heading4 pt-[43px] text-center text-[21px] ">PLS MATCHED TO <span class="block"></span> MINIPOOL IN QUEUE</h4>
-          </div>
-           <div class=" max-w-[341px] px-3 text-center">
+          <div class="relative z-[1]">
+                 <span class="bg-blue2 top-[18%] right-[103%] absolute max-w-[112px] w-full block h-[2px]"></span>
+                <h4 class="text-blue  font-bold leading-heading4 pt-[43px] text-center text-[21px] "> PLS MATCHED TO<span class="block"></span> MINIPOOL IN QUEUE</h4>
+            <span class="absolute top-[18%] left-[103%] w-full "><img src="./assets2//images/svg/bluearrow.svg" alt="arrow"></span>
+                </div>
+           <div class=" w-1/3 2xl:max-w-[341px] px-3 text-center">
                   <div
                     class="border-solid b border-[2px] inline-block border-bordercolor block  p-2  rounded-full">
                     <div
@@ -112,6 +245,28 @@
                     <p class="font-poppins font-medium text-xl leading-para text-para2 tracking-tighter pt-9 ">Operators stake PLS and PPY to get matched with Deposit Pool funds and launch a new validator.</p>
           </div>
       </div>
+      <div class="flex justify-center pt-[50px]"><img src="./assets2/images/svg/workline.svg" alt="workline"></div>
+  <div class=' pt-7 flex justify-center items-center'>
+      <div class='bg-gradient-to-b from-[#FFFFFF] to-[#FFFFFF80] sm:max-w-[840px] w-full rounded-[35px] p-[2px] max-sm:rounded-2xl'>
+          <div class="bg-card w-full p-[15px] rounded-[35px] max-sm:rounded-2xl max-sm:pb-[56px]
+          ">
+            <div class="sm:flex  gap-[15px] w-full items-center">
+<div class=' max-sm:flex justify-center max-sm:-translate-y-10 w-[66.66%] max-sm:w-full'>
+    <div class=' bg-box-gradient p-[3px] rounded-[20px] w-[240px] max-sm:max-w-[110.22px] h-[240px] max-sm:h-[110.22px]  max-sm:rounded-[9.19px]'>
+        <div class="bg-innerboxgradient  w-full h-full rounded-[20px] flex justify-center items-center max-sm:rounded-[9.19px]">
+            <img src="./assets2/images/svg/big-sucess.svg" alt="big-sucess">
+    </div>
+</div>
+</div>
+<div class='pl-[45px] pr-7 mx-sm:px-[15px] max-sm:mt-[-10px]'>
+    <h3  class='text-[63px] leading-[56.7px] max-sm:leading-[34.72px] text-white pb-[30px] max-sm:text-[38.58px] max-sm:text-center max-sm:pb-5'>SUCCESS</h3>
+    <p class='font-poppins  text-xl sm:leading-[30px] text-[#B1BDDE] max-sm:text-sm max-sm:text-center '>New Pi Pool launched with staker and node operator funds. Yield is generated for stPLS, node operator earns PPY and PLS.</p>
+</div>
+
+            </div>
+          </div>
+      </div>
+    </div>
     </section>
   </body>
 </html>
