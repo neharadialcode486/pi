@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-poppins {
+    font-family: "Poppins", sans-serif;
+}
+
+.font-barlow-condensed {
+    font-family: "Barlow Condensed", sans-serif;
+}
+
+.linear-wipe {
+    background: radial-gradient(127.22% 415.03% at -16.43% 122.04%, #EA15BC 0%, #4E3BFF 50%, #0097FF 100%);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 6s linear infinite;
+
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.gradient-border-mask3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    border: 2px solid transparent;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 15.6%, #2B3A81 100%) border-box;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+.gradient-text {
+    background: radial-gradient(116.25% 380.93% at -5.46% 117.14%, rgba(152, 49, 255, 0.5) 0%, rgba(255, 102, 255, 0.75) 100%);
+    background-size: 200% 200%;
+    animation: rainbow 2s ease-in-out infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    transition: color .2s ease-in-out;
+}
+
+.gradient-text:hover {
+    color: rgba(0, 0, 0, 0);
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: left
+    }
+
+    50% {
+        background-position: right
+    }
+
+    100% {
+        background-position: left
+    }
+}
+
+/* group-hover:first-letter:text-lightdarkgreen group-hover:first-letter:text-lightdarkgreen group-hover:first-letter:text-lightdarkgreen group-hover:first-letter:text-lightdarkgreen */
+.swiper-container {
+    max-width: 1200px;
+    width: 100%;
+    height: 321px;
+}
+
+.swiper-progress-bar {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #0E2A6B;
+}
+
+.swiper-progress-bar .progress {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: white;
+}
+
+.swiper-counter {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (max-width:1200px) {
+    .smallscreen {
+        flex-direction: column;
+        background: #071331;
+        position: fixed;
+        width: 100%;
+        justify-content: center;
+        height: 100%;
+        left: -100%;
+        top: 0;
+        transition: all .3s linear;
+        z-index: 3;
+    }
+
+}

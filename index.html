@@ -5,25 +5,407 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./assets/style/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            clifford: '#da373d',
+            main: '#071331',
+            blacklow: '#061130',
+            'blue-1000': '#1E3C90',
+            'dark-gray-100': '#DFE5F7',
+            lightwhite: '#ffffff59',
+            lightdarkgreen: '#04CBF3',
+          },
+          backgroundImage: {
+            linersvggraditant: 'radial-gradient(75.71% 75.71% at 26.43% 24.29%, #FFFFFF 0%, rgba(255, 255, 255, 0) 79.99%)',
+            linerbuttongraditant: ' radial-gradient(127.22% 415.03% at -16.43% 122.04%, rgba(26, 83, 255, 0.5) 0%, #02C0FF 100%)',
+            linercurrentgraditantlayer: 'linear-gradient(180deg, rgba(23, 32, 77, 0) 16.5%, #17204D 100%)'
           }
+          , fontSize: {
+            'xxl': '23px',
+            '2xsl': '25px',
+            '2xxl': '26px',
+            '2xll': '28px',
+            'fs29': '29px',
+            'max-big': '107px',
+            '7xxl': '74px',
+            '8xsl': '80px',
+          },
+          lineHeight: {
+            'max-big': '132px',
+            'l-sm': '23px',
+            'ls-sm': '22px',
+            'l-md': '32px',
+            'l-xl': '42px',
+            '11': '68px',
+            '11.5': '72px',
+            '12': '81px',
+          },
+          letterSpacing: {
+            low: '-0.02em',
+            light: '-0.03em',
+          },
+          dropShadow: {
+            'navsocail': ' 2px 10px 40px 0px #00000040',
+          },
+          boxShadow: {
+            'innerouter': '2px 10px 40px 0px #00000040,0px 0px 20px 0px #0095FF80 inset'
+          },
+          backgroundSize: {
+            'full': '100% 100%',
+          },
+
+          screens: {
+            'navbar': '1200px',
+            '1xl': '1400px',
+          },
         }
       }
     }
+
+  </script>
+  <script>
+    function navBarshow() {
+      document.querySelector('#smallscreen').classList.toggle('start-0')
+    }
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById('header');
+      const imageLarge = document.getElementById('image-large');
+      const imageSmall = document.getElementById('image-small');
+
+      function move(e) {
+        const w = container.offsetWidth;
+        const h = container.offsetHeight;
+        const mouseX = e.clientX - container.getBoundingClientRect().left;
+        const mouseY = e.clientY - container.getBoundingClientRect().top;
+        const imageX = (mouseX / w) * 10;
+        const imageY = (mouseY / h) * 10;
+
+        // Calculate the distance between current position and new position
+        const distanceX = (imageX - parseFloat(imageLarge.style.left || 0)) * 0.1;
+        const distanceY = (imageY - parseFloat(imageLarge.style.top || 0)) * 0.1;
+
+        // Update the position of the image based on screen size
+        if (window.innerWidth >= 1024) {
+          // For large screens
+          imageLarge.style.top = imageY + "px";
+          imageLarge.style.left = imageX + "px";
+        } else {
+          // For small screens
+          imageSmall.style.top = imageY + "px";
+          imageSmall.style.left = imageX + "px";
+        }
+      }
+
+      container.addEventListener('mousemove', move);
+    });
+  </script>
+  <!-- progess bar slider -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      let autoPlayDelay = 1500;
+
+      let options = {
+        init: true,
+        loop: false,
+        autoplay: {
+          delay: autoPlayDelay
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      };
+
+      let mySwiper = new Swiper('.swiper-container', options);
+
+      let slidersCount = mySwiper.params.loop ? mySwiper.slides.length - 2 : mySwiper.slides.length;
+      let widthParts = 100 / slidersCount;
+
+      document.querySelector('.swiper-counter .total').textContent = slidersCount;
+      for (let i = 0; i < slidersCount; i++) {
+        let span = document.createElement('span');
+        document.querySelector('.swiper-progress-bar').appendChild(span);
+      }
+
+      function initProgressBar() {
+        let calcProgress = (slidersCount - 1) * (autoPlayDelay + mySwiper.params.speed);
+        calcProgress += autoPlayDelay;
+        document.querySelector('.swiper-progress-bar .progress').style.transition = `width ${calcProgress}ms linear`;
+        document.querySelector('.swiper-progress-bar .progress').style.width = '100%';
+      }
+
+      initProgressBar();
+
+      mySwiper.on('slideChange', function () {
+        let progress = document.querySelector('.swiper-progress-bar .progress');
+
+        document.querySelector('.swiper-counter .current').textContent = mySwiper.realIndex + 1;
+
+        if ((this.progress === 0 || (this.progress === 1 && this.params.loop)) && !progress.parentElement.classList.contains('stopped')) {
+          progress.style.transition = 'none';
+          progress.style.width = '0';
+          if (this.activeIndex === 0) {
+            initProgressBar();
+          }
+        }
+
+        if (progress.parentElement.classList.contains('stopped')) {
+          progress.style.transition = `width ${this.params.speed}ms linear`;
+          progress.style.width = `${Math.round(widthParts * (this.realIndex + 1))}%`;
+        }
+      });
+
+      mySwiper.on('touchMove', function () {
+        let progress = document.querySelector('.swiper-progress-bar .progress');
+        progress.style.transition = 'none';
+        progress.parentElement.classList.add('stopped');
+      });
+
+    });
   </script>
 </head>
 
-<body>
-  <h1 class="text-3xl font-bold underline text-red-400">
-    Hello world!
-  </h1>
+<body class=" bg-main">
+  <header id="header" class=" overflow-x-clip min-h-screen relative z-[1] flex flex-col">
+    <nav class=" max-w-[1556px] w-full px-3 mx-auto 2xl:mt-[142px] mt-10 md:mt-16 lg:mt-20">
+      <div class="max-w-[1411px]">
+        <div class="flex items-center justify-between ">
+          <div>
+            <ul>
+              <li>
+                <a href="#">
+                  <img class="max-sm:w-36" src="./assets/images/png/logo.png" alt="logo" width="277" height="61">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="smallscreen" class=" flex items-center smallscreen xl:gap-24 gap-12 2xl:gap-[157px]">
+            <ul class=" flex  max-navbar:flex-col items-center gap-[60px]">
+              <li>
+                <a href="#product"
+                  class=" font-semibold font-barlow-condensed text-2xxl leading-6 tracking-light text-white flex items-center gap-2.5">Products
+                  <span><svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1L5 5L9 1" stroke="#4367D1" stroke-width="2.5" />
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#developer"
+                  class=" font-semibold font-barlow-condensed text-2xxl leading-6 tracking-light text-white flex items-center gap-2.5">Developers
+                  <span><svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1L5 5L9 1" stroke="#4367D1" stroke-width="2.5" />
+                    </svg>
+                  </span></a>
+              </li>
+              <li>
+                <a href="#learn"
+                  class=" font-semibold font-barlow-condensed text-2xxl leading-6 tracking-light text-white flex items-center gap-2.5">Learn
+                  <span><svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1L5 5L9 1" stroke="#4367D1" stroke-width="2.5" />
+                    </svg>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul class=" flex  max-navbar:flex-col  item-cneter gap-4">
+              <li class="gap-5 max-navbar:flex-col flex items-center">
+                <a href="#"
+                  class="drop-shadow-navsocail relative z-[1]  rounded-full py-6 bg-full  bg-no-repeat px-[21px] inline-block ">
+                  <img src="./assets/images/svg/twiiter.svg" class="min-h-6 min-w-7" alt="twiiter">
 
+                  <img src="./assets/images/svg/borderbottomtwitter.svg" alt="border-botom"
+                    class="absolute  bottom-[2px]  left-[50%] translate-x-[-50%] ">
+                  <img src="./assets/images/png/bgsvg.png" alt="bg-svg" class=" z-[-1] absolute rounded-full inset-0">
+
+                </a>
+                <a href="#"
+                  class="drop-shadow-navsocail relative z-[1]  rounded-full py-6 bg-full  bg-no-repeat px-[21px] inline-block ">
+                  <img src="./assets/images/svg/discord.svg" width="26" height="24" class="min-h-6 min-w-7"
+                    alt="twiiter">
+                  <img src="./assets/images/svg/borderdiscord.svg" alt="border-botom"
+                    class="absolute  bottom-[2px]  left-[50%] translate-x-[-50%] ">
+
+                  <img src="./assets/images/png/bgsvg.png" alt="bg-svg" class=" z-[-1] absolute rounded-full inset-0">
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class=" rounded-full bg-blacklow text-xxl text-white uppercase text-nowrap  nowrap font-barlow-condensed font-semibold leading-5 tracking-low py-[27px] px-11 flex items-center gap-4 shadow-innerouter ">
+                  launch app
+                  <span>
+                    <img src="./assets/images/svg/arrownav.svg" height="24" width="24" class="min-w-6 min-h-6"
+                      alt="arrownav">
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <button onclick="navBarshow()"
+            class="relative navbar:hidden px-3 py-4 border-[2px] border-lightwhite  rounded-md  z-[5] flex flex-col gap-1">
+            <span class="w-[18px] h-[2px] block bg-white rounded-[16px]"></span>
+            <span class="w-[18px] h-[2px] block bg-white rounded-[16px]"></span>
+            <span class="w-[18px] h-[2px] block bg-white rounded-[16px]"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main class="lg:grow lg:flex lg:justify-center lg:items-center lg:mt-0 md:mt-24 sm:mt-16 mt-12 ">
+      <div class="max-w-[1556px] w-full px-3 mx-auto">
+        <div class="md:ps-6">
+          <h1
+            class="font-poppins text-5xl md:text-8xl 2xl:text-max-big font-semibold tracking-tighter 2xl:leading-max-big leading-11 text-white">
+            The Future Of
+            <span class="linear-wipe block">
+              Liquid Staking </span>
+          </h1>
+          <div class=" gap-10 flex items-center mt-10">
+            <span>
+              <img src="./assets/images/svg/threebubble.svg" alt="threebubble">
+            </span>
+            <span class="h-14 bg-blue-1000 block w-1"></span>
+            <p
+              class=" font-poppins font-medium text-white text-xl md:text-2xll tracking-tighter leading-6 md:leading-l-md">
+              Launch a validator
+              node or <br class="max-md:hidden"> stake
+              PLS instantly</p>
+          </div>
+          <div class=" flex items-center gap-[6px] mt-10 sm:mt-12  lg:mt-16 2xl:pt-1">
+            <button
+              class="uppercase relative z-[1]  text-white text-lg md:text-2xxl font-semibold font-barlow-condensed  tracking-low rounded-full leading-l-sm py-5  md:py-[31px] px-[35px] md:px-[65px] shadow-innerouter">
+              Create pi pool
+            </button>
+            <button
+              class="uppercase relative z-[1]  text-white text-lg md:text-2xxl font-semibold font-barlow-condensed  tracking-low rounded-full leading-l-sm py-5  md:py-[31px] px-[35px] md:px-[65px] shadow-innerouter">
+              Create pi pool
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <img src="./assets/images/png/headerbg.png" id="image-large"
+      class=" max-sm:hidden absolute top-0 left-0 z-[-1] headerimg w-full h-full" alt="headerbg">
+    <img src="./assets/images/png/mobilebgheader.png" id="image-small"
+      class=" sm:hidden absolute bottom-[-15%] left-0 z-[-1] headerimg w-full h-full" alt="headerbg">
+  </header>
+  <section>
+    <div class="max-w-[1464px] px-3 relative z-[3] w-full h-full max-h-[478px] mx-auto ">
+      <h2
+        class="gradient-text hover:text-transparent relative z-[3] text-center font-poppins font-semibold text-5xl sm:text-7xxl leading-12 tracking-tighter text-white">
+        Current Stats
+      </h2>
+      <div class="sm:mt-11  relative z-[2]">
+        <img src="./assets/images/svg/currentbg.svg" alt="bg-currentstate"
+          class="w-full absolute hidden  lg:block rounded-3xl z-[-1] h-[478px] top-0 ">
+        <div
+          class="md:px-[80px] 1xl:px-[90px] relative z-[4] w-full flex flex-row max-md:flex-wrap justify-between md:pt-20 mt-12 lg:pt-[110px] 1xl:pt-[100px] ">
+          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60 md:w-full md:mt-20 xl:mt-[100px] group">
+            <h3
+              class=" font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white md:mt-[72px]">
+              7.19%</h3>
+            <p
+              class=" font-barlow-condensed uppercase font-semibold text-sm   sm:text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-6 lg:mt-[37px]">
+              stpls apy</p>
+          </div>
+          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60 md:w-full md:mt-20 xl:mt-[100px] group">
+            <h3
+              class=" font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white md:mt-[72px]">
+              317,503</h3>
+            <p
+              class=" font-barlow-condensed uppercase font-semibold text-sm   sm:text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-6 lg:mt-[37px]">
+              PLS Staked</p>
+          </div>
+          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60  md:mt-20 mt-12 xl:mt-[100px] md:w-full group">
+            <h3
+              class=" font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white md:mt-[72px]">
+              31.64%</h3>
+            <p
+              class=" font-barlow-condensed uppercase font-semibold text-sm   sm:text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-6 lg:mt-[37px]">
+              Avg. pi pool apy</p>
+          </div>
+          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60  md:mt-20 mt-12 xl:mt-[100px] md:w-full group">
+            <h3
+              class=" relative z-[4] font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white md:mt-[72px]">
+              251</h3>
+            <p
+              class=" font-barlow-condensed uppercase font-semibold text-sm   sm:text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-6 lg:mt-[37px]">
+              active pi pools</p>
+          </div>
+        </div>
+        <div class="md:block hidden absolute max-w-[1200px] top-[-50%] w-full   left-[50%] translate-x-[-50%] z-[2]">
+          <div
+            class=" max-w-[1200px] w-full h-[872px] bg-linercurrentgraditantlayer gradient-border-mask3 relative rounded-[30px] z-[1] w-full">
+          </div>
+        </div>
+      </div>
+      <p
+        class="relative  z-[3] text-dark-gray-100 font-poppins font-medium text-xl sm:text-2xll leading-l-xl mt-12 md:mt-[70px] tracking-tighter text-center max-w-[600px] mx-auto">
+        Learn how to earn a higher ROI with our decentralized staking protocol</p>
+      <button aria-label="learnmore"
+        class=" rounded-full relative  z-[3] bg-blacklow text-xxl mt-12 md:mt-[75px]  flex mx-auto text-white   uppercase text-nowrap  nowrap font-barlow-condensed font-semibold leading-5 tracking-low py-[27px] px-11 shadow-innerouter ">
+        learn more
+      </button>
+    </div>
+  </section>
+  <section class=" overflow-x-clip pt-[150px]">
+    <div class=" max-w-[1200px] overflow-x-clip mx-auto">
+      <div class="swiper-container relative z-[1] mt-[300px]">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide text-white">
+            <p
+              class=" font-poppins font-medium text- md:text-fs29 leading-l-xl tracking-tighter max-w-[660px] text-center mx-auto">
+              By leveraging Project Pi, builders will have one of their key friction points removed catalyzing rapid
+              growth in the
+              PulseChain economy</p>
+          </div>
+          <div class="swiper-slide text-white">
+            <p
+              class=" font-poppins font-medium text- md:text-fs29 leading-l-xl tracking-tighter max-w-[660px] text-center mx-auto">
+              By leveraging Project Pi, builders will have one of their key friction points removed catalyzing rapid
+              growth in the
+              PulseChain economy</p>
+          </div>
+          <div class="swiper-slide text-white">
+            <p
+              class=" font-poppins font-medium text- md:text-fs29 leading-l-xl tracking-tighter max-w-[660px] text-center mx-auto">
+              By leveraging Project Pi, builders will have one of their key friction points removed catalyzing rapid
+              growth in the
+              PulseChain economy</p>
+          </div>
+          <div class="swiper-slide text-white">
+            <p
+              class=" font-poppins font-medium text- md:text-fs29 leading-l-xl tracking-tighter max-w-[660px] text-center mx-auto">
+              By leveraging Project Pi, builders will have one of their key friction points removed catalyzing rapid
+              growth in the
+              PulseChain economy</p>
+          </div>
+          <div class="swiper-slide text-white">
+            <p
+              class=" font-poppins font-medium text- md:text-fs29 leading-l-xl tracking-tighter max-w-[660px] text-center mx-auto">
+              By leveraging Project Pi, builders will have one of their key friction points removed catalyzing rapid
+              growth in the
+              PulseChain economy</p>
+          </div>
+        </div>
+        <img class=" absolute start-0 top-[-20%] md:top-0" src="./assets/images/svg/arrowslider.svg" alt="arrowslider">
+      </div>
+      <div class="swiper-progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="swiper-counter">
+        <span class="current">1</span>/<span class="total">3</span>
+      </div>
+    </div>
+  </section>
 </body>
 
 </html>
