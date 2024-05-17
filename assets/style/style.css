@@ -77,8 +77,12 @@
 }
 
 /* group-hover:first-letter:text-lightdarkgreen group-hover:first-letter:text-lightdarkgreen group-hover:first-letter:text-lightdarkgreen group-hover:first-letter:text-lightdarkgreen */
-.swiper-container {
-    
+.bg {
+    background-image: url(../images/png/buttonbg.png);
+}
+
+.bg2 {
+    background-image: url(../images/png/buttonborder-gradiant.png);
 }
 
 .swiper-progress-bar {
@@ -90,7 +94,7 @@
 
 .swiper-progress-bar .progress {
     position: absolute;
-    width: 0;
+    width: 80px;
     height: 100%;
     background-color: white;
 }
@@ -100,6 +104,77 @@
     justify-content: space-between;
     width: 100%;
     margin-top: 10px;
+}
+
+/* accordion */
+.group-open .fa-chevron-down {
+    transform: rotate(180deg);
+    color: #4579AD;
+}
+
+.accordion-item.active {
+    padding: 8px;
+    border-radius: 15px;
+}
+
+.accordion-item.active .accordion-header {
+    padding: 2px !important;
+}
+
+.accordion-item.active button i {
+    transform: rotate(180deg);
+}
+
+.accordion-item .overflow-hidden {
+    transition: height 0.3s ease-in-out;
+}
+
+.bg-borderAccordion {
+    background-color: #0B2153;
+}
+
+.accordion-item .bg-bluelight {
+    transition: all linear 0.3s;
+    opacity: 1;
+}
+
+.accordion-item.active .bg-bluelight {
+    opacity: 0;
+}
+
+.accordion-item .border_r {
+    transition: all linear 0.3s;
+    border-bottom: 2px solid transparent;
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+
+.accordion-item.active .border_r {
+    background-color: #223E9B;
+    border-bottom: 2px solid #1D368C;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.accordion-item {
+    position: relative;
+}
+
+.accordion-item.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #1D368C;
+    left: 0;
+    right: 0;
+    top: 47.6%;
+    z-index: -1;
+}
+
+.textBg {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @media (max-width:1200px) {

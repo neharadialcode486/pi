@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style/style3.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    container: {
+                        padding: '12px',
+                        center: true,
+                    },
+                    colors: {
+                        clifford: '#da373d',
+                        blue: '#071331',
+                        faqborder: '#133579',
+                        bluelight: '#04CBF3',
+                        accParagraph: '#DFE5F7',
+                        blueborder: '#1D368C',
+                        layerColor: '#14265D'
+
+
+                    },
+                    borderRadius: {
+                        lgg: '15px',
+                        xl: '30px'
+                    },
+                    maxWidth: {
+                        container: '1320px',
+                        faqwidth: '1200px',
+                        faqacc: '960px',
+                        accParagraph: '610px'
+                    },
+                    backgroundImage: {
+                        faqblue: 'linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.25) 100%)',
+                        faqheading: 'linear-gradient(180.17deg, #FFFFFF 42.09%, #91CBFF 215.36%)',
+                        bordergradient: 'linear-gradient(180 deg, rgba(255, 255, 255, 0.5) 0 % , rgba(255, 255, 255, 0.25) 100 % )',
+                        borderAccordion: 'linear-gradient(127.22deg, #00D5FF 0%, #4D79FF 50% , #FF33DD 100% )'
+                    },
+                    boxShadow: {
+                        'faqShadow': '0px 2px 4px 0px # FFFFFF80 inset '
+                    },
+                    fontSize: {
+                        
+                    },
+                    padding: {
+                        t90: '90px',
+                        heading: ['50px 55px 46px 90px']
+                    }
+                }
+
+
+
+
+
+            }
+        }
+    </script>
+    <style>
+        .group-open .fa-chevron-down {
+            transform: rotate(180deg);
+            color: #4579AD;
+        }
+
+        .accordion-item.active {
+            padding: 8px;
+            border-radius: 15px;
+        }
+
+        .accordion-item.active .accordion-header {
+            padding: 2px !important;
+        }
+
+        .accordion-item.active button i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-item .overflow-hidden {
+            transition: height 0.3s ease-in-out;
+        }
+
+        .bg-borderAccordion {
+            background-color: #0B2153;
+        }
+
+        .accordion-item .bg-bluelight {
+            transition: all linear 0.3s;
+            opacity: 1;
+        }
+
+        .accordion-item.active .bg-bluelight {
+            opacity: 0;
+        }
+
+        .accordion-item .border_r {
+            transition: all linear 0.3s;
+            border-bottom: 2px solid transparent;
+            border-bottom-left-radius: 15px !important;
+            border-bottom-right-radius: 15px !important;
+        }
+
+        .accordion-item.active .border_r {
+            background-color: #223E9B;
+            border-bottom: 2px solid #1D368C;
+            border-bottom-left-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+        }
+
+        .accordion-item {
+            position: relative;
+        }
+
+        .accordion-item.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #1D368C;
+            left: 0;
+            right: 0;
+            top: 47.6%;
+            z-index: -1;
+        }
+
+        .textBg {
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg_footer {
+            background-image: url(./assets/images/png/footerBg.webp);
+        }
+    </style>
+</head>
+
+<body class="bg-blue">
+    <section class="bg-layerColor bg-opacity-70">
+        <div class="container max-w-container py-12">
+            <div class="mx-auto max-w-faqwidth rounded-xl bg-[#0B1F4F] shadow-faqShadow border-2 border-faqborder">
+                <div class="transform translate-y-[78px]">
+                    <h2
+                        class="font-poppins font-semibold text-4xl sm:text-5xl md:text-6xl xl:text-xxl4 capitalize bg-faqheading textBg sm:flex justify-center text-center lg:text-start">
+                        frequently <br class=" hidden sm:block">asked questions</h2>
+                    <div class="max-w-faqacc mx-auto pt-12 sm:pt-16 md:pt-t90 px-2 sm:px-0">
+                        <div class="border-2 border-blueborder rounded-lgg relative accordion-item active"
+                            data-active="true">
+                            <span class="w-[3px] h-[18px] bg-bluelight absolute left-[-2px] top-[42%]"></span>
+                            <div class="relative rounded-lgg p-[1px] accordion-header bg-borderAccordion">
+                                <h6 class="mb-0">
+                                    <button
+                                        class="border_r relative flex items-center gap-2 md:gap-16 w-full py-3 px-4 sm:p-6 md:p-heading font-poppins font-semibold text-xl sm:text-3xl md:text-3xxl text-left transition-all ease-in cursor-pointer group text-white group-open rounded-t-lgg "
+                                        data-collapse-target="animated-collapse-1">
+                                        <span class="text-bluelight text-lg5 pe-2">01</span> <span>What is
+                                            PulseChain?</span>
+                                        <i
+                                            class="absolute right-4 sm:right-16 pt-1 text-base transition-transform fa fa-chevron-down"></i>
+                                    </button>
+                                </h6>
+                                <div id="animated-collapse-1"
+                                    class="overflow-hidden transition-all duration-300 ease-in-out bg-[#0E1F56] rounded-b-lgg"
+                                    style="height: auto;">
+                                    <div
+                                        class="p-4 font-poppins text-lg sm:text-xl md:text-lg3 leading-normal text-accParagraph max-w-accParagraph mx-auto">
+                                        We're not always in the position that we want to be at. We're constantly
+                                        growing. We're constantly making mistakes. We're constantly trying to express
+                                        ourselves and actualize our dreams.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-2 border-blueborder rounded-lgg mt-[10px] relative accordion-item"
+                            data-active="false">
+                            <span class="w-[3px] h-[18px] bg-bluelight absolute left-[-2px] top-[42%]"></span>
+                            <div class="relative rounded-lgg p-[1px] accordion-header">
+                                <h6 class="mb-0">
+                                    <button
+                                        class="border_r relative flex items-center gap-2 md:gap-16 w-full py-3 px-4 sm:p-6 md:p-heading font-poppins font-semibold text-xl sm:text-3xl md:text-3xxl text-left transition-all ease-in cursor-pointer group text-white bg-[#0B2153] rounded-t-lgg rounded-b-0"
+                                        data-collapse-target="animated-collapse-2">
+                                        <span class="text-bluelight text-lg5 pe-2">02</span> <span>What is a
+                                            Subnet?</span>
+                                        <i
+                                            class="absolute right-4 sm:right-16 pt-1 text-base transition-transform fa fa-chevron-down"></i>
+                                    </button>
+                                </h6>
+                                <div id="animated-collapse-2"
+                                    class="overflow-hidden transition-all duration-300 ease-in-out bg-[#0E1F56] rounded-b-lgg"
+                                    style="height: 0;">
+                                    <div
+                                        class="p-4 font-poppins text-lg sm:text-xl md:text-lg3 leading-normal text-accParagraph max-w-accParagraph mx-auto">
+                                        We're not always in the position that we want to be at. We're constantly
+                                        growing. We're constantly making mistakes. We're constantly trying to express
+                                        ourselves and actualize our dreams.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-2 border-blueborder rounded-lgg mt-[10px] relative accordion-item"
+                            data-active="false">
+                            <span class="w-[3px] h-[18px] bg-bluelight absolute left-[-2px] top-[42%]"></span>
+                            <div class="relative rounded-lgg p-[1px] accordion-header">
+                                <h6 class="mb-0">
+                                    <button
+                                        class="border_r relative flex items-center gap-2 md:gap-16 w-full py-3 px-4 sm:p-6 md:p-heading font-poppins font-semibold text-xl sm:text-3xl md:text-3xxl text-left transition-all ease-in cursor-pointer group text-white bg-[#0B2153] rounded-t-lgg rounded-b-0"
+                                        data-collapse-target="animated-collapse-3">
+                                        <span class="text-bluelight text-lg5 pe-2">03</span> <span>What is liquid
+                                            staking? </span>
+                                        <i
+                                            class="absolute right-4 sm:right-16 pt-1 text-base transition-transform fa fa-chevron-down"></i>
+                                    </button>
+                                </h6>
+                                <div id="animated-collapse-3"
+                                    class="overflow-hidden transition-all duration-300 ease-in-out bg-[#0E1F56] rounded-b-lgg"
+                                    style="height: 0;">
+                                    <div
+                                        class="p-4 font-poppins text-lg sm:text-xl md:text-lg3 leading-normal text-accParagraph max-w-accParagraph mx-auto">
+                                        We're not always in the position that we want to be at. We're constantly
+                                        growing. We're constantly making mistakes. We're constantly trying to express
+                                        ourselves and actualize our dreams.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-2 border-blueborder rounded-lgg mt-[10px] relative accordion-item"
+                            data-active="false">
+                            <span class="w-[3px] h-[18px] bg-bluelight absolute left-[-2px] top-[42%]"></span>
+                            <div class="relative rounded-lgg p-[1px] accordion-header">
+                                <h6 class="mb-0">
+                                    <button
+                                        class="border_r relative flex items-center gap-2 md:gap-16 w-full py-3 px-4 sm:p-6 md:p-heading font-poppins font-semibold text-xl sm:text-3xl md:text-3xxl text-left transition-all ease-in cursor-pointer group text-white bg-[#0B2153] rounded-t-lgg rounded-b-0"
+                                        data-collapse-target="animated-collapse-4">
+                                        <span class="text-bluelight text-lg5 pe-2">04</span> <span>How does Project Pi
+                                            work? </span>
+                                        <i
+                                            class="absolute right-4 sm:right-16 pt-1 text-base transition-transform fa fa-chevron-down"></i>
+                                    </button>
+                                </h6>
+                                <div id="animated-collapse-4"
+                                    class="overflow-hidden transition-all duration-300 ease-in-out bg-[#0E1F56] rounded-b-lgg"
+                                    style="height: 0;">
+                                    <div
+                                        class="p-4 font-poppins text-lg sm:text-xl md:text-lg3 leading-normal text-accParagraph max-w-accParagraph mx-auto">
+                                        We're not always in the position that we want to be at. We're constantly
+                                        growing. We're constantly making mistakes. We're constantly trying to express
+                                        ourselves and actualize our dreams.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer class="bg-[url(./assets/images/png/footerBg.webp)] bg-no-repeat bg-cover bg-center min-h-[528px]">
+        <div class="container py-12"></div>
+    </footer>
+    <script src="node_modules/@material-tailwind/html/scripts/collapse.js"></script>
+    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>
+    <script>
+        document.querySelectorAll('button[data-collapse-target]').forEach(button => {
+            const collapseTarget = document.getElementById(button.getAttribute('data-collapse-target'));
+            if (button.classList.contains('group-open')) {
+                collapseTarget.style.height = collapseTarget.scrollHeight + 'px';
+            }
+            button.addEventListener('click', () => {
+                const currentlyOpenButton = document.querySelector('button.group-open');
+                if (currentlyOpenButton && currentlyOpenButton !== button) {
+                    const openTarget = document.getElementById(currentlyOpenButton.getAttribute('data-collapse-target'));
+                    openTarget.style.height = '0';
+                    currentlyOpenButton.classList.remove('group-open');
+                    currentlyOpenButton.closest('.accordion-item').classList.remove('active');
+                    currentlyOpenButton.closest('.accordion-header').classList.remove('bg-borderAccordion');
+                }
+                if (collapseTarget.style.height === '0px' || collapseTarget.style.height === '') {
+                    collapseTarget.style.height = collapseTarget.scrollHeight + 'px';
+                    button.classList.add('group-open');
+                    button.closest('.accordion-item').classList.add('active');
+                    button.closest('.accordion-header').classList.add('bg-borderAccordion');
+                } else {
+                    collapseTarget.style.height = '0';
+                    collapseTarget.addEventListener('transitionend', () => {
+                        if (collapseTarget.style.height === '0px') {
+                            collapseTarget.classList.add('h-0');
+                        }
+                    }, {
+                        once: true
+                    });
+                    button.classList.remove('group-open');
+                    button.closest('.accordion-item').classList.remove('active');
+                    button.closest('.accordion-header').classList.remove('bg-borderAccordion');
+                }
+            });
+        });
+    </script>
+</body>
+
+
+</html>
