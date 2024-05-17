@@ -11,6 +11,8 @@
         theme: {
           extend: {
             colors: {
+            footer:"#32488C",
+            links:"#798EF2",
               blue3:"#04CBF3",
              horizontal: "#0D2561",
               clifford: "#da373d",
@@ -48,6 +50,7 @@
               responsive2:"12.6px",
               responsive:'44px',
               button:'23.4px',
+              20:"20.7px",
               heading2:'22.5px',
               para3:'24px',
               para4:'40.25px',
@@ -399,11 +402,54 @@
 
     <!-- ==========Footer=============== -->
     <footer class="py-32 bg-[url(./assets2//images/webp/footer-bg.webp)] bg-main bg-cover">
-        <div class="container">
-          <div class="row pt-2">
-            <div class="w-4/12 px-3">
-              <div class="ps-20 ms-2"><img src="./assets2/images/svg/footer-logo.svg" alt="footer-logo" ></div>
-            </div>
+        <div class="container max-w-[1620px] mx-auto px-3">
+          <div class="flex flex-wrap flex-row -mx-3 pt-2">
+            <div class="w-4/12 px-3 relative">
+              <img src="./assets2/images/svg/footerimg-1.svg" alt="img-1" class="absolute w-[1153px] h-[826px]">
+              <div class="ps-20 ms-2">
+               <img src="./assets2/images/svg/footer-logo.svg" alt="footer-logo" >
+                <div class="flex py-8 gap-[10px]">
+                  <img src="./assets2//images/svg/discord.svg" alt="discord">
+                  <img src="./assets2//images/svg/twitter.svg" alt="twiter">
+                </div>
+                <p class="max-w-[113px] font-poppins text-footer tracking-light text-sm font-semibold">Copyright 2023 Project Pi</p>
+                            </div>
+              </div>
+              <div class="w-8/12">
+                <div class="flex flex-wrap flex-row">
+                  <div class="w-1/4 px-3">
+                    <ul class="pt-4">
+                      <li class="font-poppins pb-14 font-semibold bg-whitegradient bg-clip-text text-transparent tracking-tighter leading-para text-4lg">Products</li>
+                      <li class="pb-10"><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">Project Hub</a></li>
+                      <li class="pb-10"><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">Liquid Staking</a></li>
+                      <li><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">Validators</a></li>
+                    </ul>
+                  </div>
+                  <div class="w-1/4 px-3">
+                    <ul class="pt-4">
+                      <li class="font-poppins pb-14 font-semibold bg-whitegradient bg-clip-text text-transparent tracking-tighter leading-para text-4lg">Developers</li>
+                      <li class="pb-10"><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">Documentation</a></li>
+                      <li class="pb-10"><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">GitHub</a></li>
+                      <li><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">Primer</a></li>
+                    </ul>
+                  </div>
+                  <div class="w-1/4 px-3">
+                    <ul class="pt-4">
+                      <li class="font-poppins pb-14 font-semibold bg-whitegradient bg-clip-text text-transparent tracking-tighter leading-para text-4lg">Resources</li>
+                      <li class="pb-10"><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">Resources & Learning</a></li>
+                      <li><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">Getting Strated</a></li>
+                    </ul>
+                  </div>
+                  <div class="w-1/4 px-3">
+                    <ul class="pt-4">
+                      <li class="font-poppins pb-14 font-semibold bg-whitegradient bg-clip-text text-transparent tracking-tighter leading-para text-4lg">Company</li>
+                      <li class="pb-10"><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">Branding</a></li>
+                      <li class="pb-10"><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">Terms of use</a></li>
+                      <li><a href="" class="font-barlow-condensed text-links leading-20 text-xxl font-semibold">Security </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
     </footer>
