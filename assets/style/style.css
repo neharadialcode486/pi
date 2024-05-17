@@ -127,6 +127,7 @@
 
 .accordion-item .overflow-hidden {
     transition: height 0.3s ease-in-out;
+    /* height: 100% !important; */
 }
 
 .bg-borderAccordion {
@@ -141,6 +142,10 @@
 .accordion-item.active .bg-bluelight {
     opacity: 0;
 }
+
+/* .accordion-item.active .accordion-header .h-mine {
+    height: 210px !important;
+} */
 
 .accordion-item .border_r {
     transition: all linear 0.3s;
