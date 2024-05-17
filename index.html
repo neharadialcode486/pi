@@ -7,6 +7,8 @@
   <title>Document</title>
   <link rel="stylesheet" href="./assets/style/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -29,6 +31,7 @@
             '2xsl': '25px',
             '2xxl': '26px',
             '2xll': '28px',
+            'fs29': '29px',
             'max-big': '107px',
             '7xxl': '74px',
             '8xsl': '80px',
@@ -102,6 +105,71 @@
       }
 
       container.addEventListener('mousemove', move);
+    });
+  </script>
+  <!-- progess bar slider -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      let autoPlayDelay = 1500;
+
+      let options = {
+        init: true,
+        loop: false,
+        autoplay: {
+          delay: autoPlayDelay
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      };
+
+      let mySwiper = new Swiper('.swiper-container', options);
+
+      let slidersCount = mySwiper.params.loop ? mySwiper.slides.length - 2 : mySwiper.slides.length;
+      let widthParts = 100 / slidersCount;
+
+      document.querySelector('.swiper-counter .total').textContent = slidersCount;
+      for (let i = 0; i < slidersCount; i++) {
+        let span = document.createElement('span');
+        document.querySelector('.swiper-progress-bar').appendChild(span);
+      }
+
+      function initProgressBar() {
+        let calcProgress = (slidersCount - 1) * (autoPlayDelay + mySwiper.params.speed);
+        calcProgress += autoPlayDelay;
+        document.querySelector('.swiper-progress-bar .progress').style.transition = `width ${calcProgress}ms linear`;
+        document.querySelector('.swiper-progress-bar .progress').style.width = '100%';
+      }
+
+      initProgressBar();
+
+      mySwiper.on('slideChange', function () {
+        let progress = document.querySelector('.swiper-progress-bar .progress');
+
+        document.querySelector('.swiper-counter .current').textContent = mySwiper.realIndex + 1;
+
+        if ((this.progress === 0 || (this.progress === 1 && this.params.loop)) && !progress.parentElement.classList.contains('stopped')) {
+          progress.style.transition = 'none';
+          progress.style.width = '0';
+          if (this.activeIndex === 0) {
+            initProgressBar();
+          }
+        }
+
+        if (progress.parentElement.classList.contains('stopped')) {
+          progress.style.transition = `width ${this.params.speed}ms linear`;
+          progress.style.width = `${Math.round(widthParts * (this.realIndex + 1))}%`;
+        }
+      });
+
+      mySwiper.on('touchMove', function () {
+        let progress = document.querySelector('.swiper-progress-bar .progress');
+        progress.style.transition = 'none';
+        progress.parentElement.classList.add('stopped');
+      });
+
     });
   </script>
 </head>
@@ -235,38 +303,38 @@
         class="gradient-text hover:text-transparent relative z-[3] text-center font-poppins font-semibold text-5xl sm:text-7xxl leading-12 tracking-tighter text-white">
         Current Stats
       </h2>
-      <div class="mt-11  relative z-[2]">
+      <div class="sm:mt-11  relative z-[2]">
         <img src="./assets/images/svg/currentbg.svg" alt="bg-currentstate"
-          class="w-full absolute  xl:block rounded-3xl z-[-1] h-[478px] top-0 ">
+          class="w-full absolute hidden  lg:block rounded-3xl z-[-1] h-[478px] top-0 ">
         <div
-          class="md:px-[80px] 1xl:px-[90px] relative z-[4] w-full flex flex-row max-md:flex-wrap justify-between pt-[110px] 1xl:pt-[100px] ">
-          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60 md:w-full mt-20 xl:mt-[100px] group">
+          class="md:px-[80px] 1xl:px-[90px] relative z-[4] w-full flex flex-row max-md:flex-wrap justify-between md:pt-20 mt-12 lg:pt-[110px] 1xl:pt-[100px] ">
+          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60 md:w-full md:mt-20 xl:mt-[100px] group">
             <h3
-              class=" font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white mt-[72px]">
+              class=" font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white md:mt-[72px]">
               7.19%</h3>
             <p
               class=" font-barlow-condensed uppercase font-semibold text-sm   sm:text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-6 lg:mt-[37px]">
               stpls apy</p>
           </div>
-          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60 md:w-full mt-20 xl:mt-[100px] group">
+          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60 md:w-full md:mt-20 xl:mt-[100px] group">
             <h3
-              class=" font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white mt-[72px]">
+              class=" font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white md:mt-[72px]">
               317,503</h3>
             <p
               class=" font-barlow-condensed uppercase font-semibold text-sm   sm:text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-6 lg:mt-[37px]">
               PLS Staked</p>
           </div>
-          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60  mt-20 xl:mt-[100px] md:w-full group">
+          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60  md:mt-20 mt-12 xl:mt-[100px] md:w-full group">
             <h3
-              class=" font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white mt-[72px]">
+              class=" font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white md:mt-[72px]">
               31.64%</h3>
             <p
               class=" font-barlow-condensed uppercase font-semibold text-sm   sm:text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-6 lg:mt-[37px]">
               Avg. pi pool apy</p>
           </div>
-          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60  mt-20 xl:mt-[100px] md:w-full group">
+          <div class=" w-1/2 md:max-w-[170px] 1xl:max-w-60  md:mt-20 mt-12 xl:mt-[100px] md:w-full group">
             <h3
-              class=" relative z-[4] font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white mt-[72px]">
+              class=" relative z-[4] font-barlow-condensed font-semibold  duration-300 text-[50px] lg:text-6xl xl:text-8xsl leading-l-xl lg:leading-11.5 text-center text-white md:mt-[72px]">
               251</h3>
             <p
               class=" font-barlow-condensed uppercase font-semibold text-sm   sm:text-2xsl leading-ls-sm text-center text-lightdarkgreen mt-6 lg:mt-[37px]">
@@ -286,6 +354,56 @@
         class=" rounded-full relative  z-[3] bg-blacklow text-xxl mt-12 md:mt-[75px]  flex mx-auto text-white   uppercase text-nowrap  nowrap font-barlow-condensed font-semibold leading-5 tracking-low py-[27px] px-11 shadow-innerouter ">
         learn more
       </button>
+    </div>
+  </section>
+  <section class=" overflow-x-clip pt-[150px]">
+    <div class=" max-w-[1200px] overflow-x-clip mx-auto">
+      <div class="swiper-container relative z-[1] mt-[300px]">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide text-white">
+            <p
+              class=" font-poppins font-medium text- md:text-fs29 leading-l-xl tracking-tighter max-w-[660px] text-center mx-auto">
+              By leveraging Project Pi, builders will have one of their key friction points removed catalyzing rapid
+              growth in the
+              PulseChain economy</p>
+          </div>
+          <div class="swiper-slide text-white">
+            <p
+              class=" font-poppins font-medium text- md:text-fs29 leading-l-xl tracking-tighter max-w-[660px] text-center mx-auto">
+              By leveraging Project Pi, builders will have one of their key friction points removed catalyzing rapid
+              growth in the
+              PulseChain economy</p>
+          </div>
+          <div class="swiper-slide text-white">
+            <p
+              class=" font-poppins font-medium text- md:text-fs29 leading-l-xl tracking-tighter max-w-[660px] text-center mx-auto">
+              By leveraging Project Pi, builders will have one of their key friction points removed catalyzing rapid
+              growth in the
+              PulseChain economy</p>
+          </div>
+          <div class="swiper-slide text-white">
+            <p
+              class=" font-poppins font-medium text- md:text-fs29 leading-l-xl tracking-tighter max-w-[660px] text-center mx-auto">
+              By leveraging Project Pi, builders will have one of their key friction points removed catalyzing rapid
+              growth in the
+              PulseChain economy</p>
+          </div>
+          <div class="swiper-slide text-white">
+            <p
+              class=" font-poppins font-medium text- md:text-fs29 leading-l-xl tracking-tighter max-w-[660px] text-center mx-auto">
+              By leveraging Project Pi, builders will have one of their key friction points removed catalyzing rapid
+              growth in the
+              PulseChain economy</p>
+          </div>
+        </div>
+        <img class=" absolute start-0 top-[-20%] md:top-0" src="./assets/images/svg/arrowslider.svg" alt="arrowslider">
+      </div>
+      <div class="swiper-progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="swiper-counter">
+        <span class="current">1</span>/<span class="total">3</span>
+      </div>
     </div>
   </section>
 </body>

@@ -50,7 +50,7 @@
 }
 
 .gradient-text {
-    background: radial-gradient(116.25% 380.93% at -5.46% 117.14%, rgba(152, 49, 255, 0.5) 0%, rgba(255, 102, 255, 0.75) 100%)    ;
+    background: radial-gradient(116.25% 380.93% at -5.46% 117.14%, rgba(152, 49, 255, 0.5) 0%, rgba(255, 102, 255, 0.75) 100%);
     background-size: 200% 200%;
     animation: rainbow 2s ease-in-out infinite;
     background-clip: text;
@@ -77,6 +77,32 @@
 }
 
 /* group-hover:first-letter:text-lightdarkgreen group-hover:first-letter:text-lightdarkgreen group-hover:first-letter:text-lightdarkgreen group-hover:first-letter:text-lightdarkgreen */
+.swiper-container {
+    max-width: 1200px;
+    width: 100%;
+    height: 321px;
+}
+
+.swiper-progress-bar {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #0E2A6B;
+}
+
+.swiper-progress-bar .progress {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: white;
+}
+
+.swiper-counter {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
 
 @media (max-width:1200px) {
     .smallscreen {
