@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
   <script>
     tailwind.config = {
       theme: {
@@ -33,7 +32,16 @@
             light: '#D9F5FF',
             faqborder: '#133579',
             blueborder: '#1D368C',
-            layerColor: '#14265D'
+            layerColor: '#14265D',
+            blue3: "#04CBF3",
+            horizontal: "#0D2561",
+            bordercolor: "#2B3B81",
+            blue: '#5071D4',
+            purple: '#C58CFF',
+            blue2: '#1F3987',
+            para2: '#B1BDDE',
+            main: "#071331",
+            bordercolor2: "#193E89",
           },
           backgroundImage: {
             buttonblue: 'url(../images/png/buttonbg.png)',
@@ -44,7 +52,19 @@
             faqblue: 'linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.25) 100%)',
             faqheading: 'linear-gradient(180.17deg, #FFFFFF 42.09%, #91CBFF 215.36%)',
             bordergradient: 'linear-gradient(180 deg, rgba(255, 255, 255, 0.5) 0 % , rgba(255, 255, 255, 0.25) 100 % )',
-            borderAccordion: 'linear-gradient(127.22deg, #00D5FF 0%, #4D79FF 50% , #FF33DD 100% )'
+            borderAccordion: 'linear-gradient(127.22deg, #00D5FF 0%, #4D79FF 50% , #FF33DD 100% )',
+            headinggradient: "radial-gradient(127.22% 415.03% at -16.43% 122.04%, #EA15BC 0%, #4E3BFF 50%, #0097FF 100%)",
+            "purple-gradient": "radial-gradient(142.47% 142.47% at -16.43% 122.04%, #FF33DD 0%, #4D79FF 100%)",
+            pinkgradient: "radial-gradient(142.47% 142.47% at -16.43% 122.04%, #E617A1 0%, #FF33DD 50%, #FF4DFF 100%)",
+            darkbluegradient: "radial-gradient(142.47% 142.47% at -16.43% 122.04%, #2E3DE6 0%, #4D79FF 50%, #66A6FF 100%)",
+            skyblue: "radial-gradient(142.47% 142.47% at -16.43% 122.04%, #0099E6 0%, #00D4FF 50%, #1AFFFF 100%)",
+            // "bordergradient": "linear-gradient(180deg, #FFFFFF 15.6%, rgba(255, 255, 255, 0.5) 100%)",
+            innerbordergradient: "radial-gradient(127.22% 415.03% at -16.43% 122.04%, #FF33DD 0%, #4D79FF 50%, #00D5FF 100%)",
+            'box-gradient': ' radial-gradient(127.22% 415.03% at -16.43% 122.04%, #FF33DD 0%, #4D79FF 50%, #00D5FF 100%) ',
+            card: 'linear-gradient(180deg, rgba(20, 34, 102, 0.25)  0%,  #142266 83.5%)',
+            innerboxgradient: "linear-gradient(180deg, #142266 0%, rgba(20, 34, 102, 0.25) 83.5%)",
+            whitegradient: "linear-gradient(139.17deg, #FFFFFF -42.09%, #91CBFF 215.36%)",
+            linegradient: " linear-gradient(180deg, #0A60C0 0%, #487EFF 100%)"
           },
           borderRadius: {
             lgg: '15px',
@@ -56,25 +76,35 @@
             faqacc: '960px',
             accParagraph: '683px'
           }, fontSize: {
-              'xxl': '23px',
-              '2xsl': '25px',
-              '2xxl': '26px',
-              '2xll': '28px',
-              'fs29': '29px',
-              'max-big': '107px',
-              '7xxl': '74px',
-              '8xsl': '80px',
-              '8xxl': '108px',
-              '4lg': '34px',
-              '8xl': '48px',
+            "fs21": "21px",
+            'xxl': '23px',
+            '2xsl': '25px',
+            '2xxl': '26px',
+            '2xll': '28px',
+            'fs29': '29px',
+            "fs30": "30px",
+            '4lg': '34px',
+            "fs38": "38.58px",
+            "fs40": "40px",
+            "fs42": "42px",
+            '8xl': '48px',
+            "fs63": "63px",
+            "fs64": "64px",
+            '7xxl': '74px',
+            '8xsl': '80px',
+            'max-big': '107px',
+            '8xxl': '108px',
+
           },
           lineHeight: {
             'ls-sm': '22px',
             'max-big': '132px',
             'l-sm': '23px',
             'l-md': '32px',
+            'l35': '35px',
             'l-xl': '42px',
             'l27': '27px',
+            'l76': '76px',
             '11': '68px',
             '11.5': '72px',
             '12': '81px',
@@ -84,8 +114,17 @@
             '4xl': '40.25px',
             '9xxl': '49px',
             '5xl': '64px',
+            'lh76': "76.8px",
             '9xl': '115px',
             'xxl': '117px',
+            'heading1': '81.4px',
+            'responsive2': "12.6px",
+            'responsive': '44px',
+            'button': '23.4px',
+            'heading2': '22.5px',
+            'heading': "37.8px",
+            'paracarad': '34.4px',
+            'heading4': '18.9px'
           },
           letterSpacing: {
             low: '-0.02em',
@@ -106,7 +145,7 @@
           screens: {
             '2xs': '550px',
             '2xl': '1536px',
-            'navbar': '1200px',
+            'navbar': '1060px',
             '1xl': '1400px',
           },
         }
@@ -207,23 +246,24 @@
 
 <body class=" bg-main">
   <header id="header" class=" overflow-x-clip min-h-screen relative z-[1] flex flex-col">
-    <nav class=" max-w-[1556px] w-full px-3 mx-auto 2xl:mt-[142px] mt-10 md:mt-16 lg:mt-20">
+    <nav class=" max-w-[1164px] 2xl:max-w-[1436px] w-full px-3 mx-auto mt-[37px]">
       <div class="max-w-[1411px]">
         <div class="flex items-center justify-between ">
           <div>
             <ul>
               <li>
                 <a href="#">
-                  <img class="max-sm:w-36" src="./assets/images/png/logo.png" alt="logo" width="277" height="61">
+                  <img class="max-2xl:max-w-[183px]" src="./assets/images/png/logo.png" alt="logo" width="277"
+                    height="61">
                 </a>
               </li>
             </ul>
           </div>
           <div id="smallscreen" class=" flex items-center smallscreen xl:gap-24 gap-12 2xl:gap-[157px]">
-            <ul class=" flex  max-navbar:flex-col items-center gap-[60px]">
+            <ul class=" flex  max-navbar:flex-col items-center gap-12 2xl:gap-[60px]">
               <li>
                 <a href="#product"
-                  class=" font-semibold font-barlow-condensed text-2xxl leading-6 tracking-light text-white flex items-center gap-2.5">Products
+                  class=" font-semibold font-barlow-condensed text-xl 2xl:text-2xxl leading-6 tracking-light text-white flex items-center py-[35px] px-4 gap-2.5">Products
                   <span><svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M1 1L5 5L9 1" stroke="#4367D1" stroke-width="2.5" />
                     </svg>
@@ -232,7 +272,7 @@
               </li>
               <li>
                 <a href="#developer"
-                  class=" font-semibold font-barlow-condensed text-2xxl leading-6 tracking-light text-white flex items-center gap-2.5">Developers
+                  class=" font-semibold font-barlow-condensed text-xl 2xl:text-2xxl leading-6 tracking-light text-white flex items-center gap-2.5">Developers
                   <span><svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M1 1L5 5L9 1" stroke="#4367D1" stroke-width="2.5" />
                     </svg>
@@ -240,7 +280,7 @@
               </li>
               <li>
                 <a href="#learn"
-                  class=" font-semibold font-barlow-condensed text-2xxl leading-6 tracking-light text-white flex items-center gap-2.5">Learn
+                  class=" font-semibold font-barlow-condensed text-xl 2xl:text-2xxl leading-6 tracking-light text-white flex items-center gap-2.5">Learn
                   <span><svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M1 1L5 5L9 1" stroke="#4367D1" stroke-width="2.5" />
                     </svg>
@@ -249,29 +289,29 @@
               </li>
             </ul>
             <ul class=" flex  max-navbar:flex-col  item-cneter gap-4">
-              <li class="gap-5 max-navbar:flex-col flex items-center">
+              <li class="2xl:gap-5 gap-3 max-navbar:flex-col flex items-center">
                 <a href="#"
-                  class="drop-shadow-navsocail relative z-[1]  rounded-full py-6 bg-full  bg-no-repeat px-[21px] inline-block ">
+                  class="drop-shadow-navsocail relative z-[1]  rounded-full p-3 2xl:py-6 bg-full  bg-no-repeat p-3 2xl:px-[21px] inline-block ">
                   <img src="./assets/images/svg/twiiter.svg" class="min-h-6 min-w-7" alt="twiiter">
 
                   <img src="./assets/images/svg/borderbottomtwitter.svg" alt="border-botom"
-                    class="absolute  bottom-[2px]  left-[50%] translate-x-[-50%] ">
+                    class="absolute -bottom-1  2xl:bottom-[2px]  left-[50%] translate-x-[-50%] ">
                   <img src="./assets/images/png/bgsvg.png" alt="bg-svg" class=" z-[-1] absolute rounded-full inset-0">
 
                 </a>
                 <a href="#"
-                  class="drop-shadow-navsocail relative z-[1]  rounded-full py-6 bg-full  bg-no-repeat px-[21px] inline-block ">
+                  class="drop-shadow-navsocail relative z-[1]  rounded-full p-3 2xl:py-6 bg-full  bg-no-repeat p-3 2xl:px-[21px] inline-block ">
                   <img src="./assets/images/svg/discord.svg" width="26" height="24" class="min-h-6 min-w-7"
                     alt="twiiter">
                   <img src="./assets/images/svg/borderdiscord.svg" alt="border-botom"
-                    class="absolute  bottom-[2px]  left-[50%] translate-x-[-50%] ">
+                    class="absolute -bottom-1  2xl:bottom-[2px]  left-[50%] translate-x-[-50%] ">
 
                   <img src="./assets/images/png/bgsvg.png" alt="bg-svg" class=" z-[-1] absolute rounded-full inset-0">
                 </a>
               </li>
               <li>
                 <a href="#"
-                  class=" rounded-full bg-blacklow text-xxl text-white uppercase text-nowrap  nowrap font-barlow-condensed font-semibold leading-5 tracking-low py-[27px] px-11 flex items-center gap-4 shadow-innerouter ">
+                  class=" rounded-full bg-blacklow text-xxl text-white uppercase text-nowrap  nowrap font-barlow-condensed font-semibold leading-5 tracking-low py-[21px] 2xl:py-[27px] px-[33px] 2xl:px-11 flex items-center gap-4 shadow-innerouter ">
                   launch app
                   <span>
                     <img src="./assets/images/svg/arrownav.svg" height="24" width="24" class="min-w-6 min-h-6"
@@ -291,45 +331,44 @@
       </div>
     </nav>
     <main class="lg:grow lg:flex lg:justify-center lg:items-center lg:mt-0 md:mt-24 sm:mt-16 mt-12 ">
-      <div class="max-w-[1556px] w-full px-3 mx-auto">
-        <div class="md:ps-6">
-          <h1
-            class="font-poppins text-5xl md:text-8xl 2xl:text-max-big font-semibold tracking-tighter 2xl:leading-max-big leading-11 text-white">
-            The Future Of
-            <span class="linear-wipe block">
-              Liquid Staking </span>
-          </h1>
-          <div class=" gap-10 flex items-center mt-10">
-            <span>
-              <img src="./assets/images/svg/threebubble.svg" alt="threebubble">
-            </span>
-            <span class="h-14 bg-blue-1000 block w-1"></span>
-            <p
-              class=" font-poppins font-medium text-white text-xl md:text-2xll tracking-tighter leading-6 md:leading-l-md">
-              Launch a validator
-              node or <br class="max-md:hidden"> stake
-              PLS instantly</p>
-          </div>
-          <div class=" flex items-center gap-[6px] mt-10 sm:mt-12  lg:mt-16 2xl:pt-1">
-            <button
-              class="uppercase bg bg-no-repeat bg-cover relative z-[1]  text-white text-lg md:text-2xxl font-semibold font-barlow-condensed  tracking-low rounded-full leading-[36px] py-5  md:py-[42px] px-[35px] md:px-[66px] ">
-              Create pi pool
-              <!-- <img class=" absolute h-full w-full z-[-1] inset-0" src="./assets/images/png/buttonbg.png" alt="buttonblue"> -->
-            </button>
-            <button
-              class="uppercase bg2 bg-no-repeat bg-cover relative z-[1]  text-white text-lg md:text-2xxl font-semibold font-barlow-condensed  tracking-low rounded-full leading-[36px] py-5  md:py-[42px] px-[35px] md:px-[66px] ">
-              Create pi pool
-              <!-- <img class=" absolute h-full w-full z-[-1] inset-0" src="./assets/images/png/buttonbg.png" alt="buttonblue"> -->
-            </button>
-          </div>
+      <div class="2xl:max-w-[1436px] max-w-[1164px] w-full px-3 mx-auto">
+        <h1
+          class="font-poppins text-5xl md:text-8xl 2xl:text-max-big font-semibold tracking-tighter 2xl:leading-max-big leading-11 text-white">
+          The Future Of
+          <span class="linear-wipe block">
+            Liquid Staking </span>
+        </h1>
+        <div class=" md:gap-10 gap-7 flex items-center mt-10">
+          <span>
+            <img src="./assets/images/svg/threebubble.svg" alt="threebubble">
+          </span>
+          <span class="h-14 bg-blue-1000 block w-1"></span>
+          <p
+            class=" font-poppins font-medium text-white text-xl md:text-2xll tracking-tighter leading-6 md:leading-l-md">
+            Launch a validator
+            node or <br class="max-md:hidden"> stake
+            PLS instantly</p>
+        </div>
+        <div class=" flex items-center gap-[6px] mt-10 sm:mt-12  lg:mt-16 2xl:pt-1">
+          <button
+            class="uppercase bg bg-no-repeat bg-cover relative z-[1]  text-white text-lg md:text-2xxl font-semibold font-barlow-condensed  tracking-low rounded-full leading-[36px] py-5  md:py-[42px] px-[35px] md:px-[66px] ">
+            Create pi pool
+            <!-- <img class=" absolute h-full w-full z-[-1] inset-0" src="./assets/images/png/buttonbg.png" alt="buttonblue"> -->
+          </button>
+          <button
+            class="uppercase bg2 bg-no-repeat bg-cover relative z-[1]  text-white text-lg md:text-2xxl font-semibold font-barlow-condensed  tracking-low rounded-full leading-[36px] py-5  md:py-[42px] px-[35px] md:px-[66px] ">
+            Create pi pool
+            <!-- <img class=" absolute h-full w-full z-[-1] inset-0" src="./assets/images/png/buttonbg.png" alt="buttonblue"> -->
+          </button>
         </div>
       </div>
     </main>
     <img src="./assets/images/png/headerbg.png" id="image-large"
-      class=" max-sm:hidden absolute top-0 left-0 z-[-1] headerimg w-full h-full" alt="headerbg">
+      class=" max-sm:hidden absolute top-[6%] left-0 z-[-1] headerimg w-full h-full" alt="headerbg">
     <img src="./assets/images/png/mobilebgheader.png" id="image-small"
       class=" sm:hidden absolute bottom-[-15%] left-0 z-[-1] headerimg w-full h-full" alt="headerbg">
   </header>
+  <!-- current stats -->
   <section>
     <div class="max-w-[1464px] px-3 relative z-[3] w-full h-full  mx-auto ">
       <h2
@@ -389,6 +428,197 @@
       </button>
     </div>
   </section>
+  <section class="sec2 sm:px-[38px] px-3">
+    <img src="./assets/images/svg/illustratio.svg" height="1447"
+      class="relative bicycel  object-fit-cover lg:translate-y-[89px] z-[1] w-full" alt="illustratio">
+    <p class="text-white text-center font-poppins uppercase font-bold lg:text-2xsl  relative z-[2]">THE FIRST
+      PERMISSIONLESS STAKING PROTOCOL ON pulsechain
+    </p>
+
+  </section>
+  <!-- How does it work -->
+  <section class="bg-main pt-[75px]">
+    <div class=" container 2xl:max-w-[1499px] max-w-[1114px] mx-auto px-3">
+      <h2
+        class="font-poppins font-semibold 2xl:leading-xxl lg:leading-l76 leading-mormal leading-normal text-4xl md:text-6xl xl:text-fs64 2xl:text-8xxl  text-center text-animationhowitwork bg-headinggradient bg-clip-text text-transparent">
+        How does it work?
+      </h2>
+      <p
+        class="text-center 2xl:text-xxl md:text-xl text-base text-dark-gray-100 mx-auto max-sm:max-w-[299px] font-medium font-poppins max-w-[720px] lg:pt-[74px] md:pt-14 max-sm:py-10 leading-normal md:leading-l35 2xl:leading-4xl">
+        Project Pi uses liquid staking to lower the PulseChain minimum staking
+        requirement to launch a node and become a validator. Reward cycles
+        occur every 15 days and yield is generatedfor liquid stakers and node
+        operators.
+      </p>
+      <div
+        class="flex flex-row relative z-[1] flex-wrap lg:justify-between justify-center   -mx-3 md:pt-[150px] sm:pt-16">
+        <!-- col -->
+        <div class="lg:max-w-[253px] group md:w-1/2 w-full 2xl:max-w-[330px] px-3 text-center">
+          <div class="border-solid b border-[2px] inline-block border-bordercolor block  2xl:p-2 p-[6px]  rounded-full">
+            <div
+              class="border-dotted border-[4px] block border-bordercolor  flex items-center 2xl:p-2 p-1 rounded-full justify-center">
+              <div
+                class="bg-pinkgradient 2xl:w-[100px] md:w-[76px] w-[65px] 2xl:h-[100px] md:h-[76px] h-[65px] rounded-full flex justify-center items-center">
+                <a href="#"><img src="./assets2//images/svg/liquid-icon.svg"
+                    class="max-2xl:w-[19px] max-2xl:min-h-6 group-hover:rotate-45 duration-300" alt="icon-1"></a>
+              </div>
+            </div>
+            <div>
+            </div>
+          </div>
+          <h3
+            class="font-barlow-condensed lg:pt-9 sm:pt-6 pt-[14px] font-bold 2xl:text-fs42 text-2xl  text-white leading-heading">
+            LIQUID STAKING</h3>
+          <p
+            class="font-poppins font-medium 2xl:text-xl  md:text-base text-base 2xl:leading-lg sm:leading-6 leading-normal max-sm:max-w-[225px] max-lg:mx-auto  text-para2 max-lg:max-w-[330px] tracking-tighter 2xl:pt-9 sm:pt-6 pt-3 ">
+            Swap PLS for stPLS to earn staking rewards via liquid staking. No hardware needed.</p>
+        </div>
+        <!-- big screen arow -->
+        <div class="absolute 2xl:left-[25%] lg:left-[27%]  md:block hidden  left-[45%] z-[-1]">
+          <div class="relative z-[1]">
+            <span
+              class="bg-blue2 top-[66%] right-[103%] absolute 2xl:max-w-[112px] lg:max-w-[67px] w-full block h-[2px]"></span>
+            <h4
+              class="text-blue font-barlow-condensed  font-bold leading-heading4 pt-[43px] max-lg:max-w-[207px] text-center 2xl:text-fs21 text-base ">
+              PLS SENT TO <span class="block"></span>DEPOSIT POOL</h4>
+            <span class="absolute top-[66%] left-[103%] max-2xl:max-w-[50px] lg:max-w-[67px] w-full "><img
+                src="./assets2//images/svg/bluearrow.svg" alt="arrow"></span>
+          </div>
+        </div>
+        <!-- small screen arow -->
+        <div class=" absolute sm:top-[27%] top-[22%] md:hidden block ">
+          <span class="w-[2px] h-[60px] bg-blue2 ms-[46px] block"> </span>
+          <h4 class="font-barlow-condensed font-bold text-center py-2 leading-heading4 text-blue text-lg">PLS SENT TO
+            <span class="block"></span>DEPOSIT POOL
+          </h4>
+          <img class="ms-[40px]" src="./assets2/images/svg/uparrow.svg" alt="uparrow">
+        </div>
+        <!-- col -->
+        <div class="lg:max-w-[253px] group md:w-1/2 w-full 2xl:max-w-[330px] md:pt-0 pt-56 px-3 text-center">
+          <div class="border-solid b border-[2px] inline-block border-bordercolor block  2xl:p-2 p-[6px]  rounded-full">
+            <div
+              class="border-dotted border-[4px] block border-bordercolor  flex items-center 2xl:p-2 p-1 rounded-full justify-center">
+              <div
+                class="bg-darkbluegradient 2xl:w-[100px] md:w-[76px] w-[65px] 2xl:h-[100px] md:h-[76px] h-[65px] rounded-full flex justify-center items-center">
+                <a href="#"><img src="./assets2//images/svg/deposit-icon.svg"
+                    class="max-2xl:w-9 max-2xl:min-h-9 group-hover:rotate-45 duration-300" alt="icon-2"></a>
+              </div>
+            </div>
+            <div>
+            </div>
+          </div>
+          <h3
+            class="font-barlow-condensed lg:pt-9 sm:pt-6 pt-[14px] font-bold 2xl:text-fs42 text-2xl  text-white leading-heading">
+            DEPOSIT POOL</h3>
+          <p
+            class="font-poppins font-medium 2xl:text-xl  md:text-base text-base 2xl:leading-lg sm:leading-6 leading-normal max-sm:max-w-[225px] max-lg:max-w-[330px] max-lg:mx-auto  text-para2 tracking-tighter 2xl:pt-9 sm:pt-6 pt-3 ">
+            Staker PLS is depositedinto the Deposit Pool, getting matched to queued Pi Pools.</p>
+        </div>
+        <!-- big screen arow -->
+        <div class="absolute 2xl:left-[64%] lg:left-[64%] lg:block hidden left-[61.5%] z-[-1] ">
+          <div class="relative z-[1]">
+            <span
+              class="bg-blue2 top-[66%] right-[103%] absolute 2xl:max-w-[112px] lg:max-w-[67px]  w-full block lg:h-[2px]"></span>
+            <h4
+              class="text-blue font-bold leading-heading4 pt-[43px] font-barlow-condensed text-center 2xl:text-fs21 text-base ">
+              PLS MATCHED
+              TO<span class="block"></span>MINIPOOL IN QUEUE</h4>
+            <span class="absolute top-[66%] left-[103%] max-2xl:max-w-[43px] lg:max-w-[67px]  w-full "><img
+                src="./assets2//images/svg/bluearrow.svg" alt="arrow"></span>
+          </div>
+        </div>
+        <!-- small screen arow -->
+        <div class=" absolute md:top-[46%] sm:top-[64%] top-[62%] lg:hidden block ">
+          <span class="w-[2px] h-[60px] bg-blue2 ms-[60px] block"> </span>
+          <h4 class="font-barlow-condensed font-bold text-center py-2 leading-heading4 text-blue text-lg">PLS MATCHED TO
+            <span class="block"></span>MINIPOOL IN QUEUE
+          </h4>
+          <img class="ms-[56px]" src="./assets2/images/svg/uparrow.svg" alt="uparrow">
+        </div>
+        <!-- col -->
+        <div class="lg:max-w-[253px] group md:w-1/2 w-full 2xl:max-w-[341px] lg:pt-0 md:pt-44 pt-56 px-3 text-center">
+          <div class="border-solid b border-[2px] inline-block border-bordercolor block  2xl:p-2 p-[6px]  rounded-full">
+            <div
+              class="border-dotted border-[4px] block border-bordercolor  flex items-center 2xl:p-2 p-1 rounded-full justify-center">
+              <div
+                class="bg-skyblue 2xl:w-[100px] md:w-[76px] w-[65px] 2xl:h-[100px] md:h-[76px] h-[65px] rounded-full flex justify-center items-center">
+                <a href="#">
+                  <img src="./assets2//images/svg/node-icon.svg"
+                    class="max-2xl:w-8 max-2xl:min-h-8 group-hover:rotate-45 duration-300" alt="icon-3">
+                </a>
+              </div>
+            </div>
+            <div>
+            </div>
+          </div>
+          <h3
+            class="font-barlow-condensed lg:pt-9 sm:pt-6 pt-[14px] font-bold 2xl:text-fs42 text-2xl  text-white leading-heading">
+            NODE OPERATORS</h3>
+          <p
+            class="font-poppins font-medium 2xl:text-xl  md:text-base text-base 2xl:leading-lg sm:leading-6 leading-normal max-sm:max-w-[225px] max-lg:mx-auto text-para2 max-lg:max-w-[330px] tracking-tighter 2xl:pt-9 sm:pt-6 pt-3 ">
+            Operators stake PLS and PPY to get matched with Deposit Pool funds and launch a new validator.</p>
+        </div>
+        <img src="./assets2/images/svg/horizontal-line.svg" alt="horizontal-line"
+          class="absolute sm:h-[76%] sm:top-[8%] h-[80%] top-[4%] md:hidden block left-[4%] sm:left-[10%]">
+      </div>
+      <div class="flex justify-center mt-9  2xl:mt-[50px]">
+        <img class="md:block hidden max-2xl:w-[89%]" src="./assets2/images/svg/workline.svg" alt="workline">
+      </div>
+      <div class="flex justify-center pt-4"><img class="md:hidden block" src="./assets2//images/svg/uparrow.svg"
+          alt="uparrow"></div>
+      <div class=' md:pt-7 pt-16 flex justify-center items-center'>
+        <div class='bg-innerboxgradient sm:max-w-[840px] w-full rounded-[35px] p-[2px] max-sm:rounded-2xl'>
+          <div class="bg-card w-full p-[15px] rounded-[35px] max-sm:rounded-2xl max-sm:pb-[56px]
+            ">
+            <div class="sm:flex  gap-[15px] w-full items-center">
+              <div class=' max-sm:flex justify-center max-sm:-translate-y-10 w-[66.66%] max-sm:w-full'>
+                <div
+                  class=' bg-box-gradient p-[3px] rounded-[20px] 2xl:w-[240px]  2xl:h-[240px] lg:w-[184px] lg:h-[184px] w-[110px] h-[110px]  max-sm:rounded-[9.19px]'>
+                  <div
+                    class="bg-[#1F3399]  w-full h-full rounded-[20px] flex justify-center items-center max-sm:rounded-[9.19px]">
+                    <img src="./assets2/images/svg/big-sucess.svg" alt="big-sucess" class="max-2xl:w-[65%]">
+                  </div>
+                </div>
+              </div>
+              <div class='pl-[45px] pr-7 mx-sm:px-[15px] max-sm:mt-[-10px]'>
+                <h3
+                  class='2xl:text-fs63 lg:text-5xl leading-[56.7px] max-sm:leading-[34.72px] font-bold text-white 2xl:mb-[30px] mb-6  font-barlow-condensed max-lg:text-fs38 max-sm:text-center'>
+                  SUCCESS</h3>
+                <p
+                  class='font-poppins  2xl:text-xl text-base sm:leading-[30px] text-para2 max-sm:text-sm max-sm:text-center font-medium  '>
+                  New Pi Pool launched with staker and node operator funds. Yield is generated for stPLS, node operator
+                  earns PPY and PLS.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!-- =======Research =========== -->
+  <section class="bg-[url(./assets2//images/webp/bg-research.webp)] lg:pt-40 md:pt-28 sm:pt-16 pt-12 bg-main bg-cover ">
+    <div class="container max-w-[1440px] mx-auto px-4 max-sm:pt-1">
+      <div class="flex lg:pb-14 pb-11 justify-center">
+        <img src="./assets2/images/svg/reseacrh-icon.svg" alt="reseacrh-icon" class="max-sm:w-[80px] max-sm:h-[80px]">
+      </div>
+      <h2
+        class="bg-whitegradient font-poppins 2xl:text-7xxl lg:text-fs64 sm:text-5xl text-fs40 2xl:leading-heading1 lg:leading-11.5 leading-responsive lg:pt-1 pb-2 font-semibold tracking-tighter text-center text-transparent bg-clip-text ">
+        Want To Do Your Own Research?</h2>
+      <p
+        class="text-dark-gray-100 md:leading-4xl leading-6 font-medium font-poppins lg:mb-16 mb-11 text-center lg:mt-[75px] mt-10 tracking-tighter md:text-xxl text-base ">
+        Take a look at the documentation to help you get started faster.</p>
+      <div class="flex justify-center">
+        <!-- <button class="text-2xxl text-white px-[68.5px] py-[31px] border-blue2 font-semibold font-barlow-condensed leading-button tracking-low">learn more</button> -->
+        <button aria-label="learnMore"
+          class=" rounded-full bg-main relative max-sm:mb-12  z-[3] bg-blacklow text-xxl   flex mx-auto text-white   uppercase text-nowrap  nowrap font-barlow-condensed font-semibold leading-5 tracking-low py-[27px] px-11 shadow-innerouter ">
+          learn more
+        </button>
+      </div>
+      <div class="flex justify-center">
+        <div class="w-[3px] sm:block hidden bg-linegradient h-[177px]"></div>
+      </div>
+    </div>
+  </section>
   <!-- <section class="pt-[290px] overflow-hidden ">
     
       class=" font-poppins font-semibold text-4xl md:text-6xl xl:text-8xl 2xl:text-8xxl text-white max-w-[840px] mx-auto text-center  tracking-tighter mt-[75px] ">
@@ -408,27 +638,27 @@
   </section> -->
   <section class="2xl:pt-[250px] lg:pt-[150px] pt-[100px] sm:pt-[64px] pt-[50px] 2xs:pt-[50px]">
     <div class="container mx-auto xl:max-w-[1500px] px-3">
-      <div class="flex flex-row flex-wrap justify-end items-center relative">
-        <div class="w-full">
+      <div class="flex flex-row flex-wrap flex-col-reverse xl:flex-row justify-end items-center relative">
+        <div class=" w-full">
           <img src="./assets/images/webp/comunity-img.webp" alt="community-img"
-            class="w-full 2xl:max-w-[1350px] max-w-[920px] xl:max-w-[1200px] max-h-[1066px] lg:absolute lg:left-[-20%] lg:bottom-[-24%] hidden lg:block">
-          <img src="./assets/images/webp/community-img2.webp" alt="community-img2" class="w-full lg:hidden block">
+            class="w-full 2xl:max-w-[1350px] max-w-[920px]  max-h-[1066px] lg:absolute lg:left-[-20%] 1xl:left-[-4%] xl:left-[-7%]  2xl:left-[-18%]  lg:bottom-[13%] 1xl:bottom-[20%] xl:bottom-[10%] 2xl:bottom-[1%] hidden xl:block">
+          <img src="./assets/images/webp/community-img2.webp" alt="community-img2" class="w-full xl:hidden block">
         </div>
-        <div class="lg:w-[45%] w-full relative z-[1] mt-[20px] lg:mt-0   ">
+        <div class="max-w-[607px]   w-full relative z-[1] mt-[20px] lg:mt-0   ">
           <h2
-            class="font-semibold mx-auto  max-sm:text-center  font-poppins tracking-tighter text-4xl md:text-6xl xl:text-8xl 2xl:text-8xxl leading-9xxl sm:leading-5xl xl:leading-xxl 2xl:leading-9xl bg-gradient-to-br from-[#FFFFFF] to-[#91CBFF] bg-clip-text text-transparent inline-block mb-[8px] md:mb-[15px] xl:mb-[30px] 2xl:mb-[86px] lg:max-w-[615px]">
+            class="font-semibold mx-auto    font-poppins tracking-tighter text-5xl md:text-6xl xl:text-8xl 2xl:text-8xxl leading-9xxl sm:leading-5xl xl:leading-xxl 2xl:leading-9xl bg-gradient-to-br from-[#FFFFFF] to-[#91CBFF] bg-clip-text text-transparent inline-block mb-[8px] md:mb-[15px] xl:mb-[30px] 2xl:mb-[86px] lg:max-w-[615px]">
             Community Support</h2>
           <p
-            class="font-poppins max-sm:text-center font-medium text-xl xl:text-xxl text-dark-gray-100 tracking-tighter leading-lg sm:leading-4lg xl:leading-4xl lg:max-w-[539px] mb-[20px] xl:mb-[30px] 2xl:mb-[75px]">
+            class="font-poppins  font-medium text-xl xl:text-xxl text-dark-gray-100 tracking-tighter leading-lg sm:leading-4lg xl:leading-4xl lg:max-w-[539px] mb-[20px] xl:mb-[30px] 2xl:mb-[75px]">
             Join the movement, explore the possibilities, and witness firsthand
             the ingenuity and creativity
             that flourishes within
             the Project Pi community. Together, let's shape the future of blockchain!</p>
-          <p class="font-barlow-condensed font-bold text-lightdarkgreen capitalize text-2xsl leading-ls-sm mb-[30px]">
+          <p class="font-barlow-condensed font-bold text-lightdarkgreen capitalize text-2xsl leading-ls-sm mb-4 md:mb-[30px]">
             LATEST
             PROJECTS
           </p>
-          <div class="p-[2px] bg-gradient-to-br from-[#2052A9] to-[#0C2353] rounded-[30px] lg:max-w-[541px]">
+          <div class="p-[2px] bg-gradient-to-br from-[#2052A9] to-[#0C2353] rounded-[30px] w-full lg:max-w-[541px]">
             <div
               class="bg-main   p-[14px] sm:p-[20px] flex justify-between md:pe-[50px] rounded-[30px] shadow-[0_2px_4px_0px_rgba(255,_255,_255,_0.5) inset]">
               <div class="flex gap-[10px] sm:gap-[18px] md:gap-[24px] items-center">
@@ -448,9 +678,99 @@
               <img src="./assets/images/svg/arrow-svg.svg" alt="arrow-svg" class="cursor-pointer">
             </div>
           </div>
+          <button
+            class="uppercase bg bg-no-repeat bg-cover relative z-[1]  text-white text-lg md:text-2xxl font-semibold font-barlow-condensed  tracking-low rounded-full leading-[36px] py-5  md:py-[42px] px-[35px] md:px-[66px] mt-[60px]">
+            Create pi pool
+          </button>
         </div>
       </div>
     </div>
+  </section>
+  <!-- ========safe-secure ========= -->
+  <section class="2xl:pt-[250px] lg:pt-48 pt-10 sm:pt-12  md:pt-16 py-[] text-center bg-main">
+    <div class="container max-w-[1320px] mx-auto px-3">
+      <p class="text-blue3 font-poppins uppercase font-bold lg:text-2xsl lg:pb-[75px] md:pb-14 sm:pb-12 pb-9 ">safe &
+        secure</p>
+      <h2
+        class="lg:text-8xxl md:text-7xl sm:text-6xl text-fs40 md:leading-xxl leading-9 font-poppins font-semibold lg:pb-24 md:pb-16 sm:pb-10 pb-7 tracking-tighter bg-whitegradient bg-clip-text text-transparent">
+        Audited by the best</h2>
+      <div
+        class="max-w-[1322px] overflow-x-clip border-bordercolor2 rounded-[30px] border-[2px] p-3 max-h-[300px] w-full h-full">
+        <div class="flex overflow-hidden py-24 gap-16  md:gap-20 lg:gap-[120px] slide_container">
+          <a href="https://www.cholamandalam.com/" target="_blank">
+            <img src="./assets2/images/webp/rd-logo.webp" alt="rd-logo" class="min-w-[169px] min-h-[90px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.businessinsider.in/" target="_blank">
+            <img src="./assets2/images/webp/hat-logo.webp" alt="hat-logo" class="min-w-[160px] min-h-[80px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.cholamandalam.com/" target="_blank">
+            <img src="./assets2/images/webp/rd-logo.webp" alt="rd-logo" class="min-w-[169px] min-h-[90px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.businessinsider.in/" target="_blank">
+            <img src="./assets2/images/webp/hat-logo.webp" alt="hat-logo" class="min-w-[160px] min-h-[80px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.cholamandalam.com/" target="_blank">
+            <img src="./assets2/images/webp/rd-logo.webp" alt="rd-logo" class="min-w-[169px] min-h-[90px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.businessinsider.in/" target="_blank">
+            <img src="./assets2/images/webp/hat-logo.webp" alt="hat-logo" class="min-w-[160px] min-h-[80px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.cholamandalam.com/" target="_blank">
+            <img src="./assets2/images/webp/rd-logo.webp" alt="rd-logo" class="min-w-[169px] min-h-[90px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.businessinsider.in/" target="_blank">
+            <img src="./assets2/images/webp/hat-logo.webp" alt="hat-logo" class="min-w-[160px] min-h-[80px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.cholamandalam.com/" target="_blank">
+            <img src="./assets2/images/webp/rd-logo.webp" alt="rd-logo" class="min-w-[169px] min-h-[90px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.businessinsider.in/" target="_blank">
+            <img src="./assets2/images/webp/hat-logo.webp" alt="hat-logo" class="min-w-[160px] min-h-[80px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.cholamandalam.com/" target="_blank">
+            <img src="./assets2/images/webp/rd-logo.webp" alt="rd-logo" class="min-w-[169px] min-h-[90px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.businessinsider.in/" target="_blank">
+            <img src="./assets2/images/webp/hat-logo.webp" alt="hat-logo" class="min-w-[160px] min-h-[80px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.cholamandalam.com/" target="_blank">
+            <img src="./assets2/images/webp/rd-logo.webp" alt="rd-logo" class="min-w-[169px] min-h-[90px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.businessinsider.in/" target="_blank">
+            <img src="./assets2/images/webp/hat-logo.webp" alt="hat-logo" class="min-w-[160px] min-h-[80px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.cholamandalam.com/" target="_blank">
+            <img src="./assets2/images/webp/rd-logo.webp" alt="rd-logo" class="min-w-[169px] min-h-[90px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.businessinsider.in/" target="_blank">
+            <img src="./assets2/images/webp/hat-logo.webp" alt="hat-logo" class="min-w-[160px] min-h-[80px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.cholamandalam.com/" target="_blank">
+            <img src="./assets2/images/webp/rd-logo.webp" alt="rd-logo" class="min-w-[169px] min-h-[90px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+          <a href="https://www.businessinsider.in/" target="_blank">
+            <img src="./assets2/images/webp/hat-logo.webp" alt="hat-logo" class="min-w-[160px] min-h-[80px]">
+          </a>
+          <div class="min-w-[3px] bg-horizontal max-h-[30px] mt-[27px]"></div>
+        </div>
+      </div>
   </section>
   <section class="bg-layerColor bg-opacity-70 overflow-x-clip lg:pt-[150px] pt-24 md:pt-32 mt-[300px]">
     <div class=" max-w-[1224px] px-3 overflow-x-clip mx-auto">
@@ -504,9 +824,11 @@
   </section>
   <section class="bg-layerColor bg-opacity-70">
     <div class="container max-w-container py-1 sm:py-12">
-      <h2 class=" uppercase text-lightdarkgreen mt-8 md:mt-24  font-barlow-condensed font-bold text-2xsl leading-ls-sm text-center">
+      <h2
+        class=" uppercase text-lightdarkgreen mt-8 md:mt-24  font-barlow-condensed font-bold text-2xsl leading-ls-sm text-center">
         — Austin Barack, Partner, CoinFund</h2>
-      <div class="mx-auto max-w-faqwidth rounded-xl bg-[#0B1F4F] shadow-faqShadow border-2 border-faqborder mt-10 sm:mt-16 md:mt-32 lg:mt-40 2xl:mt-[250px]">
+      <div
+        class="mx-auto max-w-faqwidth rounded-xl bg-[#0B1F4F] shadow-faqShadow border-2 border-faqborder mt-10 sm:mt-16 md:mt-32 lg:mt-40 2xl:mt-[250px]">
         <div class="transform translate-y-[78px]">
           <h2
             class="font-poppins font-semibold text-4xl sm:text-5xl md:text-6xl xl:text-7xxl capitalize bg-faqheading textBg sm:flex justify-center text-center lg:text-start">
@@ -620,7 +942,7 @@
     document.querySelectorAll('button[data-collapse-target]').forEach(button => {
       const collapseTarget = document.getElementById(button.getAttribute('data-collapse-target'));
       if (button.classList.contains('group-open')) {
-        collapseTarget.style.height =  '240' + 'px';
+        collapseTarget.style.height = '240' + 'px';
       }
       button.addEventListener('click', () => {
         const currentlyOpenButton = document.querySelector('button.group-open');
